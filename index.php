@@ -109,16 +109,16 @@
       <img class="d-block w-100" src="./img/banner.jpg" alt="banner1" >
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" src="./img/banner.jpg" alt="banner2" >
+        <img class="d-block w-100" src="./img/CAMPANHA-DE-VACINAÇÃO.png" alt="banner2" >
     </div>
-    <div class="carousel-item">
+    <!-- <div class="carousel-item">
         <img class="d-block w-100" src="./img/banner.jpg" alt="banner3" >
-    </div>
+    </div> -->
   </div>
 </div>
     <script>
         $('.carousel').carousel({
-    interval: 5000
+    interval: 3500
     })
         </script>
         
@@ -133,7 +133,7 @@
                 <div class="#navbar_top collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto order-0 ">
                     <li class="nav-item princ"><a class="nav-link princ" href="#fb-root"> <i class="fa fa-home"></i> Inicio</a></li>
-                    <li class="nav-item princ"><a class="nav-link princ" href="#fb-root"> <i class="fa fa-tachometer"></i> Vacinômetro e Transparência</a></li>
+                    <li class="nav-item princ"><a class="nav-link princ" href="#vacinometer"> <i class="fa fa-tachometer"></i> Vacinômetro e Transparência</a></li>
                     <li class="nav-item princ"><a class="nav-link princ" href="#sobre"><i class="fa fa-university"></i> sobre o portal</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle princ" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-heartbeat"></i> COVID-19</a>
@@ -157,6 +157,8 @@
 
 
     </header>
+
+    <div id="vacinometer"></div>
 
     <div class="cards  d-flex justify-content-around" >
         
@@ -216,8 +218,8 @@
                             <div class="inner">
                             <h3 class="red"> 58000 </h3>
                                 <p class="red"> SERINGAS RECEBIDAS </p>
-                                <h3 class="orange"> 1510 </h3>
-                                <p class="orange"> seringas utilizadas até o momento*  </p>
+                                <h3 class="orange"> 56490 </h3>
+                                <p class="orange"> seringas disponiveis para a utilização*  </p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-users"></i>

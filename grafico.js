@@ -24,19 +24,23 @@ let chart = new Chart(ctx, {
             'Set',
             'Out',
             'Nov',
-            'Dez'
+            'Dez',
+            'Jan',
+            'Fev',
+            'Mar',
+            
         ],
         datasets: [
             {
                 label: 'Infectados Confirmados',
-                data: [01, 164, 511, 755, 1241],
+                data: [01, 164, 511, 755, 1293, 1557,1760,2127,2314,2426],
                 borderColor: '#1CC88A',
                 borderCapStyle: 'but',
                 fill: false
             },  
             {
                 label: 'Óbitos',
-                data: [0, 13, 63, 108, 157],
+                data: [0, 13, 63, 108, 161, 179,192,204,220,236],
                 borderColor: '#4E73DF',
                 borderCapStyle: 'but',
                 fill: false
