@@ -83,7 +83,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content1 = $htmlPosts->find('div[class="entry-content"]',0)->children(0)->plaintext;
 
-    $date1 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',0)->plaintext;
+    $date1 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',0)->plaintext;
     $link1 = $htmlPosts->find('div[class="entry-content"]',0)->children(1)->href;
 
     $title2 = $htmlPosts->find('h2[class="entry-title"]', 1)->plaintext;
@@ -92,7 +92,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content2 = $htmlPosts->find('div[class="entry-content"]',1)->children(0)->plaintext;
 
-    $date2 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',1)->plaintext;
+    $date2 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',1)->plaintext;
 
     $link2 = $htmlPosts->find('div[class="entry-content"]',1)->children(1)->href;
 
@@ -104,7 +104,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content3 = $htmlPosts->find('div[class="entry-content"]',2)->children(0)->plaintext;
 
-    $date3 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',2)->plaintext;
+    $date3 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',2)->plaintext;
 
     $link3 = $htmlPosts->find('div[class="entry-content"]',2)->children(1)->href;
 
@@ -116,7 +116,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content4 = $htmlPosts->find('div[class="entry-content"]',3)->children(0)->plaintext;
 
-    $date4 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',3)->plaintext;
+    $date4 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',3)->plaintext;
 
     $link4 = $htmlPosts->find('div[class="entry-content"]',3)->children(1)->href;
 
@@ -127,7 +127,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content5 = $htmlPosts->find('div[class="entry-content"]',4)->children(0)->plaintext;
 
-    $date5 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',4)->plaintext;
+    $date5 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',4)->plaintext;
 
     $link5 = $htmlPosts->find('div[class="entry-content"]',4)->children(1)->href;
 
@@ -138,7 +138,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content6 = $htmlPosts->find('div[class="entry-content"]',5)->children(0)->plaintext;
 
-    $date6 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',5)->plaintext;
+    $date6 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',5)->plaintext;
 
     $link6 = $htmlPosts->find('div[class="entry-content"]',5)->children(1)->href;
 
@@ -149,7 +149,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content7 = $htmlPosts->find('div[class="entry-content"]',6)->children(0)->plaintext;
 
-    $date7 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',6)->plaintext;
+    $date7 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',6)->plaintext;
 
     $link7 = $htmlPosts->find('div[class="entry-content"]',6)->children(1)->href;
 
@@ -160,7 +160,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content8 = $htmlPosts->find('div[class="entry-content"]',7)->children(0)->plaintext;
 
-    $date8 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',7)->plaintext;
+    $date8 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',7)->plaintext;
 
     $link8 = $htmlPosts->find('div[class="entry-content"]',7)->children(1)->href;
 
@@ -171,7 +171,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content9 = $htmlPosts->find('div[class="entry-content"]',8)->children(0)->plaintext;
 
-    $date9 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',8)->plaintext;
+    $date9 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',8)->plaintext;
 
     $link9 = $htmlPosts->find('div[class="entry-content"]',8)->children(1)->href;
 
@@ -182,7 +182,7 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
     $content10 = $htmlPosts->find('div[class="entry-content"]',9)->children(0)->plaintext;
 
-    $date10 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="updated"]',9)->plaintext;
+    $date10 = $htmlPosts->find('div[class="post-date"] span[class="posted-on"] time[class="entry-date published"]',9)->plaintext;
 
     $link10 = $htmlPosts->find('div[class="entry-content"]',9)->children(1)->href;
 

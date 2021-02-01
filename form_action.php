@@ -35,6 +35,9 @@ if($postArray) {
     elseif($postArray['endereco'] == "") {
         header("location:index.php?erroEndereco=true");
     }
+    elseif($postArray['secretaria'] == "Selecione") {
+        header("location:index.php?erroSecretaria=true");
+    }
     elseif($postArray['motivo'] == "Selecione") {
         header("location:index.php?erroMotivo=true");
     }
@@ -60,6 +63,7 @@ if($postArray) {
             $postArray['nascimento'],
             $postArray['sexo'],
             $postArray['endereco'],
+            $postArray['secretaria'],
             $postArray['motivo'],
             $postArray['mensagem'],
             $postArray['cep']
@@ -99,6 +103,11 @@ if($postArray) {
                 <legend style='font-size: 22px; font-weight: bold;'>Telefone:</legend>
                 <p style='font-size: 18px;'>{$formulario->getTel()}</p>
             </fieldset>
+
+            <fieldset style='margin-top: 20px;'>
+            <legend style='font-size: 22px; font-weight: bold;'>Secretaria:</legend>
+            <p style='font-size: 18px;'>{$formulario->getSecretaria()}</p>
+        </fieldset>
             
             <fieldset style='margin-top: 20px;'>
                 <legend style='font-size: 22px; font-weight: bold;'>Motivo do Contato:</legend>

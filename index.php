@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="img/corona/corona.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logoPMM.png" type="image/x-icon">
     <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 --><script src="./bootstrap/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -1016,7 +1016,6 @@
                                     <option value="masculino">Masculino</option>
                                     <option value="feminino">Feminino</option>
                                     <option value="Não Binário">Não Binário</option>
-                                    <option value="Cisgênero">Cisgênero</option>
 				                    <option value="Outros">Outros</option>
                                     
                                 </select><br>
@@ -1055,6 +1054,24 @@
                         <label  for="cep">Cep:</label><br>
                         <input style="margin-bottom: 10px;" placeholder="21999999" type="text" name="cep" onkeypress="$(this).mask('00000-000');" required>
 
+
+                        <div class="form-group">   
+                                <label  for="motivo">Secretaria:</label>
+                                <select style="width: 100%;" name="motivo" class="form-control option motivo">
+                                
+                                    <option value="Selecione">Selecione</option>
+                                    <option value="denuncia">SEMGOV - SECRETARIA MUNICIPAL DE GOVERNANÇA</option>
+                                    <option value="duvida">SEMUS - SECRETARIA MUNICIPAL DE SAÚDE</option>
+                                    <option value="elogios">SEMAS - SECRETARIA MUNICIPAL DE ASSISTÊNCIA SOCIAL</option>
+                                    <option value="solicitação">SEMED - SECRETARIA MUNICIPAL DE EDUCAÇÃO</option>
+                                    <option value="sugestao">SEMIMSP - SECRETARIA MUNICIPAL DE INFRAESTRUTURA, MOBILIDADE E SERVIÇOS PÚBLICOS</option>
+                                    <option value="solicitação">SEMSOPC - SECRETARIA MUNICIPAL DE SEGURANÇA, ORDEM PÚBLICA E CIDADANIA</option>
+                                    <option value="sugestao">outras</option>
+
+                                </select><br>
+                            </div>
+
+
                             <div class="form-group">   
                                 <label  for="motivo">Motivo do contato:</label>
                                 <select style="width: 100%;" name="motivo" class="form-control option motivo">
@@ -1065,6 +1082,8 @@
                                     <option value="elogios">Elogios</option>
                                     <option value="solicitação">Solicitação</option>
                                     <option value="sugestao">Sugestão</option>
+                                    <option value="solicitação">Reclamação</option>
+                                    <option value="sugestao">Crítica</option>
                                     <option value="outros">Outros</option>
                                 </select><br>
                             </div>
@@ -1118,6 +1137,7 @@
         
         <ul class="navbar-nav mx-auto order-0 ">
         <li class="nav-item princ"><a class="nav-link princ" href="#inicio"> <i class="fa fa-home"></i> Inicio</a></li>
+        <li class="nav-item princ"><a class="nav-link princ" href="#vacinometer"> <i class="fa fa-tachometer"></i> Vacinômetro e Transparência</a></li>
                     <li class="nav-item princ"><a class="nav-link princ" href="#sobre"><i class="fa fa-university"></i> sobre o portal</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle princ" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-heartbeat"></i> COVID-19</a>
