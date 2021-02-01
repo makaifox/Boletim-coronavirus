@@ -75,7 +75,7 @@ $jsonDadosTotais = json_encode($dadosTotais, JSON_PRETTY_PRINT);
 // $testeDate1 = $teste->find('div[class="post-date"]',1);
 // $testeLink1 = $teste->find('div[class="entry-content"]',1)->children(1)->href;
 
-$htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/semus/','class="panel-grid-cell');
+$htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19/','class="panel-grid-cell');
      
     $title1 = $htmlPosts->find('h2[class="entry-title"]', 0)->plaintext;
     
@@ -191,4 +191,8 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/semus/',
 
 
 
-    
+    $vac = file_get_html('http://vacinometro.mesquita.rj.gov.br/vacinado_list.php');
+
+
+
+    $vac1 = $vac->find('span[class="bs-number"]',0)->plaintext;

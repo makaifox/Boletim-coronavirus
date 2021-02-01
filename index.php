@@ -22,7 +22,10 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
     
   
@@ -130,6 +133,7 @@
                 <div class="#navbar_top collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto order-0 ">
                     <li class="nav-item princ"><a class="nav-link princ" href="#fb-root"> <i class="fa fa-home"></i> Inicio</a></li>
+                    <li class="nav-item princ"><a class="nav-link princ" href="#fb-root"> <i class="fa fa-tachometer"></i> Vacinômetro e Transparência</a></li>
                     <li class="nav-item princ"><a class="nav-link princ" href="#sobre"><i class="fa fa-university"></i> sobre o portal</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle princ" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-heartbeat"></i> COVID-19</a>
@@ -159,11 +163,81 @@
 
                 <div class="cards  d-flex justify-content-around ">
                 
-                <h1 class="display-4">Ultimos dados (Mesquita/RJ)<br><a style="color: #3e276a; font-size:16px; text-decoration: underline" href="http://coronavirus.mesquita.rj.gov.br/coronaapp1_list.php" target="_blank">Fonte dos dados: www.coronavirus.mesquita.rj.gov.br/</a>
-		<p style="color: #ff0000; font-size:16px" >Dados coletados a partir da data : 02/03/2020</p>
+                <h1 class="display-4">Vacinômetro e Transparência<br>
+                <p class="p-in-h1">Fonte dos dados:<br>
+                <a class="info-red" href="http://vacinometro.mesquita.rj.gov.br/vacin_metro_chart.php" target="_blank">http://vacinometro.mesquita.rj.gov.br/</a>
+                <a class="info-red" href="http://coronavirus.mesquita.rj.gov.br/coronaapp1_list.php" target="_blank">http://coronavirus.mesquita.rj.gov.br/</a>
+                </p>
+		<p style="color: #ff0000;"  class="p-in-h1">Dados coletados a partir da data : 02/03/2020</p>
                  </h1>   
                 </div>
 </div>
+
+
+        
+    <div class="cards  d-flex justify-content-around">
+        <div class="row d-flex justify-content-around  card-contain ">
+        
+        
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 card-mob">
+                        <div class="card-box bg-white">
+                            <div class="inner">
+                                <h3 class="red" > 3.170 </h3>
+                                <p class="red" > VACINAS RECEBIDAS </p>
+                                <h3 class="orange"> 1510 </h3>
+                                <p class="orange"> últimas doses recebidas: 25-01-2021* </p>
+                            </div>
+                            <div class="icon">
+                            <i class="fa fa-users"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-4 col-sm-6 card-mob ">
+                        <div class="card-box bg-white">
+                            <div class="inner">
+                            <h3 class="orange"> <?php echo $vac1; ?> </h3>
+                                <p class="orange"> PESSOAS VACINADAS </p>
+                                <h3 class="orange"> 603 </h3>
+                                <p class="orange">  maior quantitativo de vacinas aplicadas no mesmo local* </p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-4 col-sm-6 card-mob">
+                        <div class="card-box bg-white">
+                            <div class="inner">
+                            <h3 class="red"> 58000 </h3>
+                                <p class="red"> SERINGAS RECEBIDAS </p>
+                                <h3 class="orange"> 1510 </h3>
+                                <p class="orange"> seringas utilizadas até o momento*  </p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+        
+
+        
+                                
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        
+        
+
 
     <div class="container-fluid .horizontal-center  ultimos">
         

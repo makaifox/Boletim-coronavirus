@@ -63,6 +63,31 @@ body {
 	margin-left:10px; 
 }
 
+.info-red {
+    color: #ff0000;
+    font-size:16px; 
+    text-decoration: underline;
+}
+
+.red {
+    color: #ff0000 !important;
+    
+}
+
+.orange {
+    color: #cc8334 !important;
+}
+
+.p-in-h1 {
+    font-size:16px;
+    margin-bottom: 0;
+}
+
+.p-in-h1  a{
+margin: 0 1rem 0 1rem;
+}
+
+
 .card-box .icon {
     position: absolute;
     top: auto;
