@@ -196,3 +196,5 @@ $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19
 
 
     $vac1 = $vac->find('span[class="bs-number"]',0)->plaintext;
+
+

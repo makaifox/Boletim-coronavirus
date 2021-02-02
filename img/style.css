@@ -26,6 +26,24 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.icoV {
+    display: block;
+    text-indent: -9999px;
+    width: 100px;
+    height: 82px;
+    background: url(img/icones/vacinas_recebidas.svg);
+    background-size: 100px 82px;
+  }
+
+.icones{
+    width: 50% !important;
+    fill: #E7E7E7;
+    height: auto !important;
+}
+
+
+
+
 
 .container {
     margin: 0 auto;

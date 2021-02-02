@@ -190,9 +190,10 @@
                                 <p class="red" > VACINAS RECEBIDAS </p>
                                 <h3 class="orange"> 1510 </h3>
                                 <p class="orange"> últimas doses recebidas: 25-01-2021* </p>
+                            
                             </div>
                             <div class="icon">
-                            <i class="fa fa-users"></i>
+                                <i class="fa  fa-vac fa-vac-rec"></i>
                             </div>
                             
                         </div>
@@ -203,26 +204,29 @@
                             <div class="inner">
                             <h3 class="orange"> <?php echo $vac1; ?> </h3>
                                 <p class="orange"> PESSOAS VACINADAS </p>
-                                <h3 class="orange"> 603 </h3>
-                                <p class="orange">  maior quantitativo de vacinas aplicadas no mesmo local* </p>
+                                <h3 class="orange"> 832 </h3>
+                                <p class="orange">  maior quantitativo de vacinas aplicadas no mesmo local* (Clínica da família São José) </p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-users"></i>
+                            <i class="fa fa-vac fa-pes-vac"></i>
                             </div>
                             
                         </div>
                     </div>
-        
+
+                    <?php 
+                        $SDisponiveis = 58000  - $vac1;
+                    ?>
                     <div class="col-lg-4 col-sm-6 card-mob">
                         <div class="card-box bg-white">
                             <div class="inner">
                             <h3 class="red"> 58000 </h3>
                                 <p class="red"> SERINGAS RECEBIDAS </p>
-                                <h3 class="orange"> 56490 </h3>
+                                <h3 class="orange"> <?php echo $SDisponiveis ?>  </h3>
                                 <p class="orange"> seringas disponiveis para a utilização*  </p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-users"></i>
+                                <i class="fa fa-vac fa-se-rec"></i>
                             </div>
                             
                         </div>
@@ -236,8 +240,6 @@
             </div>
         </div>
     </div>
-        
-        
         
 
 
@@ -258,7 +260,7 @@
                         <p> informados no dia <?= $hoje; ?>  </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-users"></i>
+                    <i class="fa fa-vac fa-ca-con"></i>
                     </div>
                     
                 </div>
@@ -273,7 +275,7 @@
                         <p>  informados no dia <?= $hoje; ?>  </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-users"></i>
+                    <i class="fa fa-vac fa-to-ob"></i>
                     </div>
                     
                 </div>
@@ -288,7 +290,7 @@
                         <p> informados no dia <?= $hoje; ?>  </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-users"></i>
+                    <i class="fa fa-vac fa-sus-tes"></i>
                     </div>
                     
                 </div>
@@ -303,7 +305,7 @@
                         <p> informados no dia <?= $hoje; ?>  </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-users"></i>
+                    <i class="fa fa-vac fa-des-tes"></i>
                     </div>
                     
                 </div>
@@ -318,7 +320,7 @@
                         <p> informados no dia <?= $hoje; ?>  </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-users"></i>
+                    <i class="fa fa-vac fa-descart"></i>
                     </div>
                     
                 </div>
@@ -333,7 +335,7 @@
                         <p> informados no dia <?= $hoje; ?>  </p>
                     </div>
                     <div class="icon" id="sobre">
-                        <i class="fa fa-users"></i>
+                    <i class="fa fa-vac fa-des-cli"></i>
                     </div>
                     
                 </div>

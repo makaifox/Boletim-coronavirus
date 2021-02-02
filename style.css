@@ -25,6 +25,67 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+
+
+
+.iconSVG{
+    width: 50% !important;
+    fill: #a19f9f;
+    height: auto !important;
+
+    margin: 0 0 1rem 8rem;
+}
+
+.iconSVGLarge{
+    width: 50% !important;
+    fill: #a19f9f;
+    height: auto !important;
+
+    margin: 0 0 1rem 7rem;
+}
+
+
+.fa-vac:before {
+    display: block !important;
+    content: ' ' !important;
+    background-size: 5rem !important;
+    height: 6rem !important;
+    width: 6rem !important;
+    background-repeat: no-repeat !important;
+    Z-INDEX: 1 !important;
+    opacity: 0.1 !important;
+
+}
+
+.fa-vac-rec:before {
+    background-image: url(img/icones/vacinas_recebidas.svg);
+}
+
+.fa-pes-vac:before {
+    background-image: url(img/icones/pessoas_vacinadas.svg)
+}
+
+.fa-se-rec:before {
+    background-image: url(img/icones/SERINGAS_RECEBIDAS.svg)
+}
+.fa-ca-con:before {
+    background-image: url(img/icones/CASOS_CONFIRMADOS.svg)
+}
+.fa-to-ob:before {
+    background-image: url(img/icones/TOTAL_DE_OBITOS.svg)
+}
+.fa-sus-tes:before {
+    background-image: url(img/icones/SUSPEITOS_COM_TESTE.svg)
+}
+.fa-des-tes:before {
+    background-image: url(img/icones/DESCARTADOS\ COM\ TESTE.svg)
+}
+.fa-descart:before {
+    background-image: url(img/icones/DESCARTADOS.svg)
+}
+.fa-des-cli:before {
+    background-image: url(img/icones/DESCARTADOS_CLINICOS.svg)
+}
 /*  cards atuais */
 .card-box {
     position: relative;
@@ -32,6 +93,8 @@ body {
     padding: 10px 10px 10px;
     margin: 10px 0px;
     border-radius: 20px;
+    max-width: 248,33px !important;
+    max-height:173,8px !important;
 }
 .card-box:hover {
     text-decoration: none;
@@ -44,6 +107,7 @@ body {
 }
 .card-box .inner {
     padding: 5px 10px 0 10px;
+    z-index: 5;
 }
 .card-box h3 {
     font-size: 27px;
