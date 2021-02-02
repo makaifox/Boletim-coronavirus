@@ -9,7 +9,7 @@ date_default_timezone_set('America/Sao_Paulo');
 $hoje = date('d-m-Y');
 $date = getdate();
 
-//$casosDescartados = $html->find('span[id="edit4_sum_of_casos_descartados"]', 0)->plaintext;
+
 $dadosTotais = [
     'obitos' => $obitos = $html->find('span[id="edit4_sum_of_obito"]', 0)->plaintext,
     'suspeitosComTeste' => $suspeitosComTeste = $html->find('span[id="edit4_sum_of_casos_suspeitos_com_teste"]', 0)->plaintext,
@@ -20,22 +20,12 @@ $dadosTotais = [
     'descartadosClinicos' => $descartadosClinicos = $html->find('span[id="edit4_sum_of_casos_descartados_clinicos"]', 0)->plaintext
 ];
 
-// numero anterior é sempre puxado da API antes das 12:00 e armazenado no banco de dados
-// numero posterior é sempre puxado da API depois das 14:00 e armazenado na variável para mostrar os dados totais, ou seja, numeroPosterior = dadosTotais
-// os numeros são atualizados 14:00
-// os dados de hoje são criados a partir da fórmula ->  dadosAtuais = numeroPosterior - numeroAnterior
-// quando a hora do getdate marcar 14 uma função é inicializada e armazena 
 
 
 
 $dadosCorona = new DadosCorona($obitos, $suspeitosComTeste, $descartadosComTeste, $descartados, $descartadosClinicos, $confirmados);
 $read = $dadosCorona->read();
-/*$confirmadosHoje = $confirmados - $read[0]['casosConfirmados'] ;
-$obitosHoje = $obitos - $read[0]['obitos'];
-$suspeitosTesteHoje = $suspeitosComTeste - $read[0]['suspeitosTeste'];
-$descartadosTesteHoje = $descartadosComTeste - $read[0]['descartadosTeste'];
-$descartadosHoje = $descartados - $read[0]['descartados'];
-$descartadosClinicosHoje = $descartadosClinicos - $read[0]['descartadosClinico'];*/
+
 
 $dadosHoje = [
     'confirmadosHoje' => $confirmadosHoje = $confirmados - $read[0]['casosConfirmados'] ,
@@ -61,19 +51,7 @@ $replace = str_replace($format, '', $dadosHoje);
 $jsonDadosHoje = json_encode($replace, JSON_PRETTY_PRINT);
 $jsonDadosTotais = json_encode($dadosTotais, JSON_PRETTY_PRINT);
 
-//file_put_contents('dados-grafico.json',$jsonDadosHoje);
 
-// file_put_contents('dados-grafico.json', $jsonDadosTotais);
-
-// $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/noticias','class="panel-grid-cell');
-
-// $teste = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/semus/','class="panel-grid-cell');
-
-// $testeTitle1 = $teste->find('h2[class="entry-title"]', 1)->plaintext;
-// $testeImg1 = $teste->find('div[class=post-image-wrap]',1);
-// $testeContent1 = $teste->find('div[class="entry-content"]',1)->children(0)->plaintext;
-// $testeDate1 = $teste->find('div[class="post-date"]',1);
-// $testeLink1 = $teste->find('div[class="entry-content"]',1)->children(1)->href;
 
 $htmlPosts = file_get_html('http://www.mesquita.rj.gov.br/pmm/categoria/covid-19/','class="panel-grid-cell');
      
