@@ -307,6 +307,23 @@ margin: 0 1rem 0 1rem;
     margin-top: -10px;
 }
 
+
+.controls-top {
+    z-index: 2;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+@media (max-width: 400px){
+    .controls-top {
+        top: 10%;
+    }
+}
+
+.inner-size {
+    padding: 0 10px 0 10px !important;
+}
 /*********** CARDS **************/
 
 

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="img/logoPMM.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/0.jpg" type="image/x-icon">
     <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 --><script src="./bootstrap/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 
 
@@ -111,6 +112,9 @@
     <div class="carousel-item">
         <img class="d-block w-100" src="./img/CAMPANHA-DE-VACINAÇÃO.png" alt="banner2" >
     </div>
+    <div class="carousel-item">
+        <img class="d-block w-100" src="./img/VACINAÇÃO-COVID-19---banner-site.png" alt="banner3" >
+    </div>
     <!-- <div class="carousel-item">
         <img class="d-block w-100" src="./img/banner.jpg" alt="banner3" >
     </div> -->
@@ -176,14 +180,18 @@
 </div>
 
 
+   
+    <div class="container-fluid .horizontal-center  ultimos">
         
-    <div class="cards  d-flex justify-content-around">
-        <div class="row d-flex justify-content-around  card-contain ">
-        
-        
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 card-mob">
+<div class="cards  d-flex justify-content-around">
+                <div class="row d-flex justify-content-around  card-contain ">
+
+
+    <div class="container">
+        <div class="row">
+
+
+        <div class="col-lg-4 col-sm-6 card-mob">
                         <div class="card-box bg-white">
                             <div class="inner">
                                 <h3 class="red" > 3.170 </h3>
@@ -201,11 +209,11 @@
         
                     <div class="col-lg-4 col-sm-6 card-mob ">
                         <div class="card-box bg-white">
-                            <div class="inner">
+                            <div class="inner inner-size">
                             <h3 class="orange"> <?php echo $vac1; ?> </h3>
                                 <p class="orange"> PESSOAS VACINADAS </p>
-                                <h3 class="orange"> 832 </h3>
-                                <p class="orange">  maior quantitativo de vacinas aplicadas no mesmo local* (Clínica da família São José) </p>
+                                <h3 class="orange"> 1018 </h3>
+                                <p class="orange" style="font-size:11px; padding: 0">  maior quantitativo de vacinas aplicadas no mesmo local* (Clínica da família São José) </p>
                             </div>
                             <div class="icon">
                             <i class="fa fa-vac fa-pes-vac"></i>
@@ -231,26 +239,7 @@
                             
                         </div>
                     </div>
-        
 
-        
-                                
-                            
-                </div>
-            </div>
-        </div>
-    </div>
-        
-
-
-    <div class="container-fluid .horizontal-center  ultimos">
-        
-<div class="cards  d-flex justify-content-around">
-                <div class="row d-flex justify-content-around  card-contain ">
-
-
-    <div class="container">
-        <div class="row">
             <div class="col-lg-4 col-sm-6 card-mob">
                 <div class="card-box bg-white">
                     <div class="inner">
@@ -505,16 +494,30 @@
             </div>
             
             <div class="container cta-100 ">
+ 
+
                 <div class="container">
                 <div class="row blog">
                     <div class="col-md-12">
                     <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                        <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#blogCarousel" data-slide-to="1"></li>
-                        <li data-target="#blogCarousel" data-slide-to="2"></li>
-                        <li data-target="#blogCarousel" data-slide-to="3"></li>
-                        </ol>
+
+                        <!--Controls-->
+                        <div class="controls-top d-flex justify-content-between">
+                            <a class="btn-floating" href="#blogCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-4x"></i></a>
+                            <a class="btn-floating" href="#blogCarousel" data-slide="next"><i class="fa fa-chevron-right fa-4x"></i></a>
+                        </div>
+
+                        <!--/.Controls-->
+                        <!-- <ol class="carousel-indicators">
+                            <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#blogCarousel" data-slide-to="1"></li>
+                            <li data-target="#blogCarousel" data-slide-to="2"></li>
+                            <li data-target="#blogCarousel" data-slide-to="3"></li>
+                            <li data-target="#blogCarousel" data-slide-to="4"></li>
+                            <li data-target="#blogCarousel" data-slide-to="5"></li>
+                        </ol> -->
+
+                        
                         <!-- Carousel items -->
                         <div class="carousel-inner">
                         <div id="#banner" class="carousel-item active">
@@ -847,6 +850,571 @@
 
                             <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
                             <!--.row-->
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date11;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img11;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link11;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title11;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content11;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link11;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date12;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img12;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link12;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title12;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content12;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link12;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            
+                        </div>
+                        
+                        <!--.item-->
+                        </div>
+
+                        <!--.item -->
+                        <div class="carousel-item ">
+                            <div class="row">
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date13;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img13;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link13;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title13;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content13;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link13;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date14;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img14;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link14;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title5?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content14;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link14;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date15;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img15;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link15;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title15;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content15;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link15;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            
+                        </div>
+                        
+                        <!--.item-->
+                        </div>
+                        <!--.item -->
+                        <div class="carousel-item ">
+                            <div class="row">
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date4;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img4;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link4;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title4;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content4;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link4;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date5;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img5;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link5;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title5?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content5;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link5;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date6;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img6;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link6;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title6;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content6;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link6;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            
+                        </div>
+                        
+                        <!--.item-->
+                        </div>
+                        <!--.item -->
+                        <div class="carousel-item ">
+                            <div class="row">
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date4;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img4;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link4;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title4;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content4;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link4;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date5;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img5;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link5;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title5?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content5;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link5;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date6;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img6;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link6;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title6;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content6;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link6;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            
+                        </div>
+                        
+                        <!--.item-->
+                        </div>
+                        <!--.item -->
+                        <div class="carousel-item ">
+                            <div class="row">
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date4;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img4;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link4;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title4;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content4;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link4;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date5;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img5;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link5;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title5?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content5;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link5;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date6;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img6;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link6;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title6;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content6;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link6;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
+                            
+                        </div>
+                        
+                        <!--.item-->
+                        </div>
+                        <!--.item -->
+                        <div class="carousel-item ">
+                            <div class="row">
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date4;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img4;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link4;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title4;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content4;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link4;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date5;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img5;?> </figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link5;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title5?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content5;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link5;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+                            <!-----------------------------------------------------------------------copiar daqui ----------------------------------------------------------------------->
+                            <div class="col-md-4 slider" >
+                                <div class="item-box-blog">
+                                <div class="item-box-blog-image">
+                                    <!--Date-->
+                                    <div class="item-box-blog-date bg-blue-ui white"> <span class="mon"><?= $date6;?></span> </div>
+                                    <!--Image-->
+                                    <figure > <?= $img6;?></figure>
+                                </div>
+                                <div class="item-box-blog-body">
+                                    <!--Heading-->
+                                    <div class="item-box-blog-heading">
+                                    <a href="<?=$link6;?>" target="_blank" tabindex="0">
+                                        <h5 class="h6"><?= $title6;?></h5>
+                                    </a>
+                                    </div>
+                                    <!--Data-->
+                                    <div class="item-box-blog-data" style="padding: px 15px;">
+                                    
+                                    </div>
+                                    <!--Text-->
+                                    <div class="item-box-blog-text">
+                                    <p><?= $content6;?></p>
+                                    </div>
+                                    <div class="mt"> <a href="<?=$link6;?>" tabindex="0" target="_blank" class="btn bg-blue-ui white read">leia mais</a> </div>
+                                    <!--leia mais Button-->
+                                </div>
+                                </div>
+                                
+                            </div>
+
+                            <!-----------------------------------------------------------------------copiar até aqui ----------------------------------------------------------------------->
+                            <!--.row-->
                             
                         </div>
                         
@@ -854,9 +1422,14 @@
                         </div>
                         
                         <!--.carousel-inner-->
+                        
+                        
                     </div>
+                  
                     <!--.Carousel-->
                     </div>
+
+                        </div>
                 </div>
                 </div>
             </div>
@@ -864,7 +1437,7 @@
     </div>
 </div>
 
-<!----------------------------fim noticias----------------------------------->
+
 
 
 <div class="card"> 
@@ -1058,8 +1631,8 @@
 
 
                         <div class="form-group">   
-                                <label  for="motivo">Secretaria:</label>
-                                <select style="width: 100%;" name="motivo" class="form-control option motivo">
+                                <label  for="secretaria">Secretaria, Subsecretaria ou Setor :</label>
+                                <select style="width: 100%;" name="secretaria" class="form-control option motivo">
                                 
                                     <option value="Selecione">Selecione</option>
                                     <option value="denuncia">SEMGOV - SECRETARIA MUNICIPAL DE GOVERNANÇA</option>
