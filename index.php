@@ -464,7 +464,7 @@ new Glider($responsiveCarousel, {
   },
   responsive: [
     {
-      breakpoint: 400,
+      breakpoint: 700,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -480,6 +480,10 @@ new Glider($responsiveCarousel, {
   ],
 });
 </script>
+
+</div>
+</div>
+</div>
 
 <div class="card"> 
         <div class=" d-flex justify-content-around" id="COVID">
@@ -703,6 +707,12 @@ new Glider($responsiveCarousel, {
                                     <option value="outros">Outros</option>
                                 </select><br>
                             </div>
+
+                            <div class="form-group">
+                                <label for="titulo">Título da Mensagem:</label>
+                                <input type="text"  class="form-control" name="titulo" placeholder="Assunto da mensagem" required><br>    
+                            </div>
+
                         
                             <div class="form-group">   
                                 <label for="mensagem">Deixe sua mensagem:</label><br>

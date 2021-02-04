@@ -24,7 +24,7 @@ body {
     background-color:#e5e2eb !important;
     font-family: 'Open Sans', sans-serif;
 }
-@media(min-width:400px){
+@media(min-width:765px){
     .item-box-blog-image figure img {
         width: 17rem;
     }
