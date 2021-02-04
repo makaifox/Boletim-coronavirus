@@ -24,9 +24,26 @@ body {
     background-color:#e5e2eb !important;
     font-family: 'Open Sans', sans-serif;
 }
+@media(min-width:400px){
+    .item-box-blog-image figure img {
+        width: 17rem;
+    }
 
+    .item-box-blog{
+        max-width: 20rem;
+    }
 
+    .glider-track {
+        width: 100% !important;
+    }
+}
 
+.buttons_area {
+    width: 100%;
+    position: absolute;
+    top: 15rem;
+    z-index: 5;
+}
 
 .iconSVG{
     width: 50% !important;
