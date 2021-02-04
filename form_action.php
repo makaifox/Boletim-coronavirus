@@ -6,12 +6,13 @@ require './Alert.php';
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
         
-        'atendimento@mesquita.rj.gov.br',
-        'daniel.souza@mesquita.rj.gov.br',
-        'everton.rocha@mesquita.rj.gov.br',
-        'alex.silva@mesquita.rj.gov.br',
+        // 'atendimento@mesquita.rj.gov.br',
+        // 'daniel.souza@mesquita.rj.gov.br',
+        // 'everton.rocha@mesquita.rj.gov.br',
+        'yury.cunha@mesquita.rj.gov.br',
         //'maira.silva@mesquita.rj.gov.br',
-	'governodemesquita@gmail.com'
+    // 'governodemesquita@gmail.com'
+    
         
 ];
 
@@ -65,6 +66,7 @@ if($postArray) {
             $postArray['endereco'],
             $postArray['secretaria'],
             $postArray['motivo'],
+            $postArray['titulo'],
             $postArray['mensagem'],
             $postArray['cep']
            /* $postArray['duvidas'] */
@@ -108,7 +110,12 @@ if($postArray) {
             <legend style='font-size: 22px; font-weight: bold;'>Secretaria:</legend>
             <p style='font-size: 18px;'>{$formulario->getSecretaria()}</p>
         </fieldset>
-            
+        
+        <fieldset style='margin-top: 20px;'>
+        <legend style='font-size: 22px; font-weight: bold;'>Motivo do Contato:</legend>
+        <p style='font-size: 18px;'>{$formulario->getTitulo()}</p>
+        </fieldset>
+
             <fieldset style='margin-top: 20px;'>
                 <legend style='font-size: 22px; font-weight: bold;'>Motivo do Contato:</legend>
                 <p style='font-size: 18px;'>{$formulario->getMensagem()}</p>

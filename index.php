@@ -26,6 +26,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">
+
+
+jQuery(document).ready(function(){
+jQuery('#form-fale-conosco').submit(function(){
+    var dados = jQuery( this ).serialize();
+
+    jQuery.ajax({
+        type: "POST",
+        url: "form_action.php",
+        data: dados,
+        success: function( data )
+        {
+             $('#mensagem').css('display', 'block')
+                    .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
+    
+            
+        },
+        beforeSend: function() { /* antes de enviar */
+                     $('.loading').fadeIn('fast'); 
+                 },
+        complete: function(){ /* completo */               
+                     $('.loading').fadeOut('fast');
+                 }
+    });
+    
+    return false;
+});
+});
+</script>
+<style>
+    .loading { display: none; }
+</style>
+
 
 
 
@@ -607,7 +644,7 @@ new Glider($responsiveCarousel, {
     
             <div class="card-body fale-conosco">
 
-                <form action="form_action.php" class="form" method="POST">
+                <form action="" id="form-fale-conosco" class="form" method="POST">
                     <div class="row">
 
                         <div class="col">
@@ -680,13 +717,30 @@ new Glider($responsiveCarousel, {
                                 <select style="width: 100%;" name="secretaria" class="form-control option motivo">
                                 
                                     <option value="Selecione">Selecione</option>
-                                    <option value="denuncia">SEMGOV - SECRETARIA MUNICIPAL DE GOVERNANÇA</option>
-                                    <option value="duvida">SEMUS - SECRETARIA MUNICIPAL DE SAÚDE</option>
-                                    <option value="elogios">SEMAS - SECRETARIA MUNICIPAL DE ASSISTÊNCIA SOCIAL</option>
-                                    <option value="solicitação">SEMED - SECRETARIA MUNICIPAL DE EDUCAÇÃO</option>
-                                    <option value="sugestao">SEMIMSP - SECRETARIA MUNICIPAL DE INFRAESTRUTURA, MOBILIDADE E SERVIÇOS PÚBLICOS</option>
-                                    <option value="solicitação">SEMSOPC - SECRETARIA MUNICIPAL DE SEGURANÇA, ORDEM PÚBLICA E CIDADANIA</option>
-                                    <option value="sugestao">outras</option>
+                                    <option value="SEMGOV">SEMGOV - SECRETARIA MUNICIPAL DE GOVERNANÇA</option>
+                                        <option value="SEMGOV-GOVERNO">SEMGOV - SUBSECRETARIA DE GOVERNO</option>
+                                        <option value="SEMGOV-ADMINISTRACAO">SEMGOV - SUBSECRETARIA DE ADMINISTRAÇÃO</option>
+                                        <option value="SEMGOV-PLANEJAMENTO">SEMGOV - SUBSECRETARIA DE PLANEJAMENTO</option>
+                                        <option value="SEMGOV-FAZENDA">SEMGOV - SUBSECRETARIA DE FAZENDA</option>
+                                        <option value="SEMGOV-TECNOLOGIA">SEMGOV - SUBSECRETARIA DE TECNOLOGIA DA INFORMAÇÃO</option>
+                                        <option value="SEMGOV-TRABALHO">SEMGOV - SUBSECRETARIA DE TRABALHO</option>
+                                        <option value="SEMGOV-D.ECONOMICO">SEMGOV - SUBSECRETARIA DE DESENVOLVIMENTO ECONÔMICO</option>
+                                        <option value="SEMGOV-CULTURA">SEMGOV - SUBSECRETARIA DE CULTURA</option>
+                                        <option value="SEMGOV-ESPORTE">SEMGOV - SUBSECRETARIA DE ESPORTE</option>
+                                        <option value="SEMGOV-TURISMO">SEMGOV - SUBSECRETARIA DE TURISMO</option>
+                                        <option value="SEMGOV-ASS SOCIAL">SEMGOV - SUBSECRETARIA DE ASSISTÊNCIA SOCIAL</option>
+                                    <option value="SEMUS">SEMUS - SECRETARIA MUNICIPAL DE SAÚDE</option>
+                                    <option value="SEMED">SEMED - SECRETARIA MUNICIPAL DE EDUCAÇÃO</option>
+                                    <option value="SEMIMSP">SEMIMSP - SECRETARIA MUNICIPAL DE INFRAESTRUTURA, MOBILIDADE E SERVIÇOS PÚBLICOS</option>
+                                        <option value="SEMIMSP-OBRAS">SEMIMSP - SUBSECRETARIA DE OBRAS</option>
+                                        <option value="SEMIMSP-S PUBLICOS">SEMIMSP - SUBSECRETARIA DE SERVIÇOS PÚBLICOS</option>
+                                        <option value="SEMIMSP-TRANSITO">SEMIMSP - SUBSECRETARIA DE TRANSITO</option>
+                                        <option value="SEMIMSP-DCIVIL">SEMIMSP - SUBSECRETARIA DE DEFESA CIVIL</option>
+                                        <option value="SEMIMSP-MEIO AMBIENTE">SEMIMSP - SUBSECRETARIA DE MEIO AMBIENTE</option>
+                                        <option value="SEMIMSP-URBANISMO">SEMIMSP - SUBSECRETARIA DE URBANISMO</option>
+                                        <option value="SEMIMSP-AGRICULTURA">SEMIMSP - SUBSECRETARIA DE AGRICULTURA</option>
+                                    <option value="SEMSOPC">SEMSOPC - SECRETARIA MUNICIPAL DE SEGURANÇA, ORDEM PÚBLICA E CIDADANIA</option>
+                                    <option value="Outras">outras</option>
 
                                 </select><br>
                             </div>
@@ -728,12 +782,15 @@ new Glider($responsiveCarousel, {
                    
 
                  </div>
-				<div class="col">
-                    <button type="submit" class="btn-lg btn-color">Enviar</button>
+                 <div class="col">
+                    <button type="submit" class="btn-lg btn-color">Enviar</button> <img src="img/loading.gif" class="loading" style="width: auto; height: 2rem;">
+
                 </div>
 				
 				</div>
                 </form>
+
+                <div id="mensagem" class=""></div>
             </div>       
 
         </div>

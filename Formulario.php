@@ -11,13 +11,14 @@ class Formulario {
     private $endereco;
     private $secretaria;
     private $motivo;
+    private $titulo;
     private $mensagem;
     private $cep;
     
 
     private $pdo;
 
-    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $sec ,$mot, $men, $cep) {
+    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $sec, $mot, $tit, $men, $cep) {
 
         try {
             $this->pdo = new PDO("mysql:dbname=coronaviruspmm;host=coronaviruspmm.mysql.dbaas.com.br", 'coronaviruspmm', 'pmmcorona2020');
@@ -33,6 +34,7 @@ class Formulario {
         $this->setEndereco($end);
         $this->setSecretaria($sec);
         $this->setMotivo($mot);
+        $this->setTitulo($tit);
         $this->setMensagem($men);
         $this->setCep($cep);
     }
@@ -48,6 +50,7 @@ class Formulario {
             endereco,
             secretaria,
             motivo,
+            titulo,
             mensagem,
             cep
 
@@ -61,6 +64,7 @@ class Formulario {
             :endereco,
             :secretaria,
             :motivo,
+            :titulo,
             :mensagem,
             :cep
         )");
@@ -143,6 +147,14 @@ class Formulario {
     }
     private function setMotivo($motivo) {
         $this->motivo;
+    }
+
+    public function getTitulo() {
+        return $this->titulo;
+    }
+
+    private function setTitulo($titulo) {
+        $this->titulo;
     }
 
     public function getMensagem() {
