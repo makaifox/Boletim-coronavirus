@@ -27,6 +27,10 @@
     <link href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
 
 
     <script type="text/javascript">
@@ -63,7 +67,74 @@ jQuery('#form-fale-conosco').submit(function(){
     .loading { display: none; }
 </style>
 
+<script>
 
+
+//**************************************VIACEP****************************************** */
+
+$(document).ready(function() {
+
+    function limpa_formulário_cep() {
+        // Limpa valores do formulário de cep.
+        $("#rua").val("");
+        $("#bairro").val("");
+        $("#cidade").val("");
+        $("#uf").val("");
+
+    }
+    
+    //Quando o campo cep perde o foco.
+    $("#cep").blur(function() {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = $(this).val().replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                $("#rua").val("...");
+                $("#bairro").val("...");
+                $("#cidade").val("...");
+
+
+                //Consulta o webservice viacep.com.br/
+                $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                    if (!("erro" in dados)) {
+                        //Atualiza os campos com os valores da consulta.
+                        $("#rua").val(dados.logradouro);
+                        $("#bairro").val(dados.bairro);
+                        $("#cidade").val(dados.localidade);
+
+                    } //end if.
+                    else {
+                        //CEP pesquisado não foi encontrado.
+                        limpa_formulário_cep();
+                        alert("CEP não encontrado.");
+                    }
+                });
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    });
+});
+
+</script>
 
 
 
@@ -178,6 +249,7 @@ jQuery('#form-fale-conosco').submit(function(){
                     <li class="nav-item princ"><a class="nav-link princ" href="#fb-root"> <i class="fa fa-home"></i> Inicio</a></li>
                     <li class="nav-item princ"><a class="nav-link princ" href="#vacinometer"> <i class="fa fa-tachometer"></i> Vacinômetro e Transparência</a></li>
                     <li class="nav-item princ"><a class="nav-link princ" href="#sobre"><i class="fa fa-university"></i> sobre o portal</a></li>
+                    <li class="nav-item princ"><a class="nav-link princ" href="#noticias"> <i class="fa fa-newspaper-o"></i> Ultimas notícias</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle princ" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-heartbeat"></i> COVID-19</a>
                         <div class="dropdown-menu">
@@ -191,7 +263,7 @@ jQuery('#form-fale-conosco').submit(function(){
                     </li>
 
                     <li class="nav-item princ"><a class="nav-link princ" href="#grafico"> <i class="fa fa-bar-chart"></i> Gráfico de Contaminação</a></li>
-                    <li class="nav-item princ"><a class="nav-link princ" href="#noticias"> <i class="fa fa-newspaper-o"></i> Ultimas notícias</a></li>
+                    
                         <li class="nav-item princ"><a class="nav-link princ" href="#fale_conosco"> <i class="fa fa-comment"></i> Fale conosco</a></li>
                 
                     </ul>
@@ -223,10 +295,10 @@ jQuery('#form-fale-conosco').submit(function(){
     <div class="container-fluid .horizontal-center  ultimos">
         
 <div class="cards  d-flex justify-content-around">
-                <div class="row d-flex justify-content-around  card-contain ">
+                <!-- <div class="row d-flex justify-content-around  card-contain "> -->
 
 
-    <div class="container">
+    <!-- <div class="container"> -->
         <div class="row">
 
 
@@ -251,7 +323,7 @@ jQuery('#form-fale-conosco').submit(function(){
                             <div class="inner inner-size">
                             <h3 class="orange"> <?php echo $vac1; ?> </h3>
                                 <p class="orange"> PESSOAS VACINADAS </p>
-                                <h3 class="orange"> 1046 </h3>
+                                <h3 class="orange"> 1047 </h3>
                                 <p class="orange" style="font-size:11px; padding: 0">  maior quantitativo de vacinas aplicadas no mesmo local* (Clínica da família São José) </p>
                             </div>
                             <div class="icon">
@@ -374,7 +446,7 @@ jQuery('#form-fale-conosco').submit(function(){
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
 
 
@@ -683,7 +755,7 @@ new Glider($responsiveCarousel, {
                             
                            
                         </div>
-
+                        
                         <div class="col">
 
                         <div class="form-group">
@@ -699,8 +771,12 @@ new Glider($responsiveCarousel, {
                             </div> 
 
                             <div class="form-group">   
-                                <label for="endereco">Endereço:</label><br>
-                                <input type="text"  class="form-control" name="endereco" placeholder="Rua exemplo, 10" required><br>
+
+
+                                <label  for="cep">Cep:</label><br>
+                        <input style="margin-bottom: 10px;" placeholder="Insira seu cep" id="cep" type="text" name="cep" onkeypress="$(this).mask('00000-000');" required>
+
+
                                
 
                                 <label for=""></label>
@@ -708,9 +784,26 @@ new Glider($responsiveCarousel, {
                             </div>
                         
                         </div>
-                        <label  for="cep">Cep:</label><br>
-                        <input style="margin-bottom: 10px;" placeholder="21999999" type="text" name="cep" onkeypress="$(this).mask('00000-000');" required>
+                        <div class="row">
+                        <div class="col">
+                        <label for="endereco">Rua:</label><br>
+                                <input type="text"  class="form-control" name="endereco" id="rua" placeholder="Rua exemplo, 10" required><br>
 
+                            
+                                <label for="numero">Numero e complemento:</label><br>
+                                <input type="text"  class="form-control" name="numero" placeholder="nº X casa X" required><br>
+
+                        </div>
+                        <div class="col">
+
+                                <label for="bairro">Bairro:</label><br>
+                                <input type="text"  class="form-control" name="bairro" id="bairro" placeholder="Bairro" required><br>
+
+                                <label for="cidade">Cidade:</label><br>
+                                <input type="text"  class="form-control" name="cidade"  id="cidade" placeholder="Cidade" required><br>
+
+                        </div>
+                        </div>
 
                         <div class="form-group">   
                                 <label  for="secretaria">Secretaria, Subsecretaria ou Setor :</label>
@@ -822,6 +915,7 @@ new Glider($responsiveCarousel, {
         <li class="nav-item princ"><a class="nav-link princ" href="#inicio"> <i class="fa fa-home"></i> Inicio</a></li>
         <li class="nav-item princ"><a class="nav-link princ" href="#vacinometer"> <i class="fa fa-tachometer"></i> Vacinômetro e Transparência</a></li>
                     <li class="nav-item princ"><a class="nav-link princ" href="#sobre"><i class="fa fa-university"></i> sobre o portal</a></li>
+                    <li class="nav-item princ"><a class="nav-link princ" href="#noticias"> <i class="fa fa-newspaper-o"></i> Ultimas notícias</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle princ" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-heartbeat"></i> COVID-19</a>
                         <div class="dropdown-menu">
@@ -836,7 +930,7 @@ new Glider($responsiveCarousel, {
 
                     
                     <li class="nav-item princ"><a class="nav-link princ" href="#grafico"> <i class="fa fa-bar-chart"></i> Gráfico de Contaminação</a></li>
-                    <li class="nav-item princ"><a class="nav-link princ" href="#noticias"> <i class="fa fa-newspaper-o"></i> Ultimas notícias</a></li>
+                    
                         <li class="nav-item princ"><a class="nav-link princ" href="#fale_conosco"> <i class="fa fa-comment"></i> Fale conosco</a></li>
                 
                     </ul>

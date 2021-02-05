@@ -9,6 +9,9 @@ class Formulario {
     private $nascimento;
     private $sexo;
     private $endereco;
+    private $numero;
+    private $bairro;
+    private $cidade;
     private $secretaria;
     private $motivo;
     private $titulo;
@@ -18,7 +21,7 @@ class Formulario {
 
     private $pdo;
 
-    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $sec, $mot, $tit, $men, $cep) {
+    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $num, $bai, $cid, $sec, $mot, $tit, $men, $cep) {
 
         try {
             $this->pdo = new PDO("mysql:dbname=coronaviruspmm;host=coronaviruspmm.mysql.dbaas.com.br", 'coronaviruspmm', 'pmmcorona2020');
@@ -32,6 +35,9 @@ class Formulario {
         $this->setNascimento($nasc);
         $this->setSexo($sexo);
         $this->setEndereco($end);
+        $this->setNumero($num);
+        $this->setBairro($bai);
+        $this->setCidade($cid);
         $this->setSecretaria($sec);
         $this->setMotivo($mot);
         $this->setTitulo($tit);
@@ -48,6 +54,9 @@ class Formulario {
             nascimento,
             sexo,
             endereco,
+            numero,
+            bairro,
+            cidade,
             secretaria,
             motivo,
             titulo,
@@ -62,6 +71,9 @@ class Formulario {
             :nascimento,
             :sexo,
             :endereco,
+            :numero,
+            :bairro,
+            :cidade,
             :secretaria,
             :motivo,
             :titulo,
@@ -133,6 +145,27 @@ class Formulario {
     }
     private function setEndereco($endereco) {
         $this->endereco = $endereco;
+    }
+
+    public function getNumero(){
+        return $this->numero;
+    }
+    private function setNumero($numero) {
+        $this->numero = $numero;
+    }
+
+    public function getBairro(){
+        return $this->bairro;
+    }
+    private function setBairro($bairro) {
+        $this->bairro = $bairro;
+    }
+
+    public function getCidade(){
+        return $this->cidade;
+    }
+    private function setCidade($cidade) {
+        $this->cidade = $cidade;
     }
 
     public function getSecretaria() {

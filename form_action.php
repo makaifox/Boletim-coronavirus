@@ -64,6 +64,9 @@ if($postArray) {
             $postArray['nascimento'],
             $postArray['sexo'],
             $postArray['endereco'],
+            $postArray['numero'],
+            $postArray['bairro'],
+            $postArray['cidade'],
             $postArray['secretaria'],
             $postArray['motivo'],
             $postArray['titulo'],
@@ -75,7 +78,7 @@ if($postArray) {
         $msg = "
         <div style='max-width: 900px; margin: 0 auto;''>
         
-            <h1 style='text-align: center; color: red;''>Fale Conosco - Boletim Coronavirus</h1>
+            <h1 style='text-align: center; color: red;''>{$formulario->getMensagem()} - Boletim Coronavirus</h1>
             <fieldset>
                 <legend style='font-size: 22px; font-weight: bold;''>Nome Completo:</legend>
                 <p style='font-size: 18px;''>{$formulario->getNome()}</p>
@@ -110,11 +113,27 @@ if($postArray) {
             <legend style='font-size: 22px; font-weight: bold;'>Secretaria:</legend>
             <p style='font-size: 18px;'>{$formulario->getSecretaria()}</p>
         </fieldset>
-        
-        <fieldset style='margin-top: 20px;'>
-        <legend style='font-size: 22px; font-weight: bold;'>Motivo do Contato:</legend>
-        <p style='font-size: 18px;'>{$formulario->getTitulo()}</p>
+
+            <fieldset style='margin-top: 20px;'>
+            <legend style='font-size: 22px; font-weight: bold;'>Endereço:</legend>
+            <p style='font-size: 18px;'>{$formulario->getEndereco()}</p>
         </fieldset>
+
+            <fieldset style='margin-top: 20px;'>
+            <legend style='font-size: 22px; font-weight: bold;'>Numero e complemento:</legend>
+            <p style='font-size: 18px;'>{$formulario->getNumero()}</p>
+        </fieldset>
+
+        <fieldset style='margin-top: 20px;'>
+        <legend style='font-size: 22px; font-weight: bold;'>Bairro:</legend>
+        <p style='font-size: 18px;'>{$formulario->getBairro()}</p>
+        </fieldset>
+
+            <fieldset style='margin-top: 20px;'>
+            <legend style='font-size: 22px; font-weight: bold;'>Cidade:</legend>
+            <p style='font-size: 18px;'>{$formulario->getCidade()}</p>
+        </fieldset>
+        
 
             <fieldset style='margin-top: 20px;'>
                 <legend style='font-size: 22px; font-weight: bold;'>Motivo do Contato:</legend>
