@@ -135,7 +135,15 @@ require './Formulario.php';
     </script>
 
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBYLEBQY3W"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-XBYLEBQY3W');
+    </script>
 
 
 
@@ -322,7 +330,7 @@ require './Formulario.php';
                         <div class="inner inner-size">
                             <h3 class="orange"> <?php echo $vac1; ?> </h3>
                             <p class="orange"> PESSOAS VACINADAS </p>
-                            <h3 class="orange"> 1057 </h3>
+                            <h3 class="orange"> 1069 </h3>
                             <p class="orange" style="font-size:11px; padding: 0"> maior quantitativo de vacinas aplicadas no mesmo local* (Clínica da família São José) </p>
                         </div>
                         <div class="icon">
@@ -810,7 +818,7 @@ require './Formulario.php';
                         </div>
                     </div>
                     <br>
-                    <h6 class="sec-form-two text-center align-self-center ">DADOS DA MENSAGEM AO DESTINATÁRIO</h6>
+                    <h6 class="sec-form-two text-center align-self-center ">DADOS DA MENSAGEM</h6>
                     <div class="destinatario">
                     <br>
                     <br>
@@ -842,7 +850,7 @@ require './Formulario.php';
                                 <option value="SEMIMSP-MEIO AMBIENTE">SEMIMSP - SUBSECRETARIA DE MEIO AMBIENTE</option>
                                 <option value="SEMIMSP-URBANISMO">SEMIMSP - SUBSECRETARIA DE URBANISMO</option>
                                 <option value="SEMIMSP-AGRICULTURA">SEMIMSP - SUBSECRETARIA DE AGRICULTURA</option>
-                                <option value="SEMUS">SEMUS - SECRETARIA MUNICIPAL DE SAÚDE</option>
+                                <option value="SEMUS" selected >SEMUS - SECRETARIA MUNICIPAL DE SAÚDE</option>
                                 <option value="SEMED">SEMED - SECRETARIA MUNICIPAL DE EDUCAÇÃO</option>
                                 <option value="CGM">CGM - CONTROLADORIA GERAL MUNICIPAL</option>
                                 <option value="PGM">PGM - PROCURADORIA GERAL MUNICIPAL</option>
@@ -902,7 +910,7 @@ require './Formulario.php';
                     <br>
                     <div class="col">
                         <input type="checkbox" id="termos" class="form-check-input" required checked/>
-                        <label class="form-check-label" for="termos">Confirmo o envio de meus dados, autorizando a utilização dos mesmos, seguindo as normas da LGPD (Lei Geral de Proteção de Dados Pessoais - Nº13.709 de 14 de Agosto de 2018)<a href="http:////www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm">(http:////www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709)</a></label>
+                        <label class="form-check-label" for="termos" style="font-size:10px;">Confirmo o envio de meus dados, autorizando a utilização dos mesmos, seguindo as normas da LGPD (Lei Geral de Proteção de Dados Pessoais - Nº13.709 de 14 de Agosto de 2018)<a href="http:////www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm">(http:////www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709)</a></label>
                         
                     </div>
                 </form>
