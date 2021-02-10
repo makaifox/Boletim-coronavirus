@@ -3,6 +3,7 @@ session_start();
 require './Formulario.php';
 require './Alert.php';
 
+
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
         
@@ -10,8 +11,8 @@ $address = [
         // 'daniel.souza@mesquita.rj.gov.br',
         // 'everton.rocha@mesquita.rj.gov.br',
         'yury.cunha@mesquita.rj.gov.br',
-        //'maira.silva@mesquita.rj.gov.br',
-    // 'governodemesquita@gmail.com'
+        // 'governodemesquita@gmail.com'
+        $formulario->getEmail()
     
         
 ];
@@ -75,10 +76,14 @@ if($postArray) {
            /* $postArray['duvidas'] */
 
         );
+
+        $agora = new DateTime(); // Pega o momento atual
         $msg = "
         <div style='max-width: 900px; margin: 0 auto;''>
         
-            <h1 style='text-align: center; color: red;''>{$formulario->getMensagem()} - Boletim Coronavirus</h1>
+            <h1 style='text-align: center; color: red;''>{$formulario->getMensagem()} - mensagem nº:{$agora->format('dmYHis')} </h1> 
+
+
             <fieldset>
                 <legend style='font-size: 22px; font-weight: bold;''>Nome Completo:</legend>
                 <p style='font-size: 18px;''>{$formulario->getNome()}</p>
@@ -147,7 +152,7 @@ if($postArray) {
         </div>";
 	
        
-        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus');
+        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus - mensagem numero:'.$agora->format("dmYHis"));
     }
 }   
 

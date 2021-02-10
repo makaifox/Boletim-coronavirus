@@ -17,6 +17,8 @@ class Formulario {
     private $titulo;
     private $mensagem;
     private $cep;
+
+
     
 
     private $pdo;

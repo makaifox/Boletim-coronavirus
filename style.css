@@ -53,6 +53,18 @@ body {
     margin: 0 0 1rem 8rem;
 }
 
+.custom-file-label::after {
+    background-color: #3e276a !important;
+    color: #ffffff !important;
+    content: "Enviar arquivo" !important;
+
+}
+
+.custom-file-label {
+    border: 0.1rem solid black !important;
+    border-radius: 0.7rem !important;
+}
+
 .iconSVGLarge{
     width: 50% !important;
     fill: #a19f9f;

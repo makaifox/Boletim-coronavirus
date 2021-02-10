@@ -4,6 +4,8 @@ session_start();
 require './web_scraper.php';
 require './Formulario.php';
 
+ 
+
 ?>
 
 <!DOCTYPE html>
@@ -880,10 +882,30 @@ require './Formulario.php';
                             </select><br>
                         </div>
 
+
                         <div class="form-group">
                             <label for="titulo">Título da Mensagem:</label>
                             <input type="text" class="form-control" name="titulo" placeholder="Assunto da mensagem" required><br>
                         </div>
+
+                        <div class="form-group">
+                            <label >Deseja enviar algum arquivo em anexo? (*tamanho máximo de 2mb):</label>
+                            <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Nenhum arquivo selecionado</label>
+                        </div>
+
+
+                        <script>
+                        // Add the following code if you want the name of the file appear on select
+                        $(".custom-file-input").on("change", function() {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                        });
+                        </script>
+                        </div>
+
+
 
 
                         <div class="form-group">
