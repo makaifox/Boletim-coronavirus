@@ -1,6 +1,6 @@
 <?php
 session_start();
-//include './curl.php';
+include './curl.php';
 require './web_scraper.php';
 require './Formulario.php';
 
@@ -31,6 +31,7 @@ require './Formulario.php';
     <link href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 
@@ -727,7 +728,7 @@ require './Formulario.php';
 
             <div class="card-body fale-conosco">
 
-                <form action="" id="form-fale-conosco" class="form" method="POST">
+                <form action="" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
                     <h6 class="sec-form text-center align-self-center">DADOS DO REMETENTE</h6>
                     <div class="remetente">
                         
@@ -891,11 +892,11 @@ require './Formulario.php';
                         <div class="form-group">
                             <label >Deseja enviar algum arquivo em anexo? (*tamanho máximo de 2mb):</label>
                             <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
+                            <input type="file" class="custom-file-input" id="customFile" name="arquivo"  size="45">
                             <label class="custom-file-label" for="customFile">Nenhum arquivo selecionado</label>
                         </div>
-
-
+                        
+                            
                         <script>
                         // Add the following code if you want the name of the file appear on select
                         $(".custom-file-input").on("change", function() {
@@ -923,7 +924,7 @@ require './Formulario.php';
 
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn-lg btn-color">Enviar</button> <img src="img/loading.gif" class="loading" style="width: auto; height: 2rem;">
+                                    <button type="submit" id="btnEnviar" class="btn-lg btn-color">Enviar</button> <img src="img/loading.gif" class="loading" style="width: auto; height: 2rem;">
 
                                 </div>
 
