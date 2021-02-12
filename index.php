@@ -1,8 +1,8 @@
 <?php
 session_start();
-include './curl.php';
-require './web_scraper.php';
-require './Formulario.php';
+// include './curl.php';
+// require './web_scraper.php';
+// require './Formulario.php';
 
  
 
@@ -34,33 +34,71 @@ require './Formulario.php';
 
 
     <script type="text/javascript">
-        jQuery(document).ready(function() {
-            jQuery('#form-fale-conosco').submit(function() {
-                var dados = jQuery(this).serialize();
-
-                jQuery.ajax({
-                    type: "POST",
-                    url: "form_action.php",
-                    data: dados,
-                    success: function(data) {
-                        $('#mensagem').css('display', 'block')
-                            .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
 
 
-                    },
-                    beforeSend: function() {
-                        /* antes de enviar */
-                        $('.loading').fadeIn('fast');
-                    },
-                    complete: function() {
-                        /* completo */
-                        $('.loading').fadeOut('fast');
-                    }
-                });
 
-                return false;
-            });
-        });
+
+
+
+$(document).ready(function(){
+    $('#btnEnviar').click(function(){
+        $('#form-fale-conosco').ajaxForm({
+            uploadProgress: function(event, position, total, percentComplete) {
+                $('progress').attr('value',percentComplete);
+                $('#porcentagem').html(percentComplete+'%');
+            },    
+
+            success: function(data) {
+                $('progress').attr('value','100');
+                $('#porcentagem').html('100%');                
+                if(data.sucesso == true){
+                    $('#resposta').css('display', 'block').html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
+
+                }
+                else{
+                    $('#resposta').html(data.msg);
+                }                
+            },
+            error : function(){
+                $('#resposta').html('Erro ao enviar requisição!!!');
+            },
+            dataType: 'json',
+            url: 'Formulario.php',
+            resetForm: true
+        }).submit();
+    })
+})
+        // jQuery(document).ready(function() {
+        //     jQuery('#form-fale-conosco').submit(function() {
+        //         var dados = jQuery(this).serialize();
+
+        //         jQuery.ajax({
+        //             type: "POST",
+        //             url: "Formulario.php",
+        //             data: dados,
+        //                 uploadProgress: function(event, position, total, percentComplete) {
+        //                         $('progress').attr('value',percentComplete);
+        //                         $('#porcentagem').html(percentComplete+'%');
+        //                     },        
+        //             success: function(data) {
+        //                 $('#mensagem').css('display', 'block')
+        //                     .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
+
+
+        //             },
+        //             beforeSend: function() {
+        //                 /* antes de enviar */
+        //                 $('.loading').fadeIn('fast');
+        //             },
+        //             complete: function() {
+        //                 /* completo */
+        //                 $('.loading').fadeOut('fast');
+        //             }
+        //         });
+
+        //         return false;
+        //     });
+        // });
     </script>
     <style>
         .loading {
@@ -889,8 +927,8 @@ require './Formulario.php';
                         <div class="form-group">
                             <label >Deseja enviar algum arquivo em anexo? (*tamanho máximo de 2mb):</label>
                             <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile" name="arquivo"  size="45">
-                            <label class="custom-file-label" for="customFile">Nenhum arquivo selecionado</label>
+                            <input type="file" class="custom-file-input" id="customFile" name="upload_file"  size="45">
+                            <label class="custom-file-label" for="upload_file">Nenhum arquivo selecionado</label>
                         </div>
                         
                             
@@ -935,7 +973,14 @@ require './Formulario.php';
                     </div>
                 </form>
 
-                <div id="mensagem" class=""></div>
+                <div id="resposta" class=""></div>
+
+
+
+            <br />
+           
+       
+        <div id="resposta">
             </div>
 
         </div>
