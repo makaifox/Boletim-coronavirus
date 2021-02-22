@@ -3,16 +3,15 @@ session_start();
 require './Formulario.php';
 require './Alert.php';
 
-
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
         
-        // 'atendimento@mesquita.rj.gov.br',
-        // 'daniel.souza@mesquita.rj.gov.br',
-        // 'everton.rocha@mesquita.rj.gov.br',
+        'atendimento@mesquita.rj.gov.br',
+        'daniel.souza@mesquita.rj.gov.br',
+        'everton.rocha@mesquita.rj.gov.br',
         'yury.cunha@mesquita.rj.gov.br',
-        // 'governodemesquita@gmail.com'
-        $formulario->getEmail()
+        'maira.silva@mesquita.rj.gov.br',
+        'governodemesquita@gmail.com'
     
         
 ];
@@ -76,14 +75,10 @@ if($postArray) {
            /* $postArray['duvidas'] */
 
         );
-
-        $agora = new DateTime(); // Pega o momento atual
         $msg = "
         <div style='max-width: 900px; margin: 0 auto;''>
         
-            <h1 style='text-align: center; color: red;''>{$formulario->getMensagem()} - mensagem nº:{$agora->format('dmYHis')} </h1> 
-
-
+            <h1 style='text-align: center; color: red;''>Fale Conosco - Boletim Coronavirus</h1>
             <fieldset>
                 <legend style='font-size: 22px; font-weight: bold;''>Nome Completo:</legend>
                 <p style='font-size: 18px;''>{$formulario->getNome()}</p>
@@ -139,6 +134,10 @@ if($postArray) {
             <p style='font-size: 18px;'>{$formulario->getCidade()}</p>
         </fieldset>
         
+        <fieldset style='margin-top: 20px;'>
+        <legend style='font-size: 22px; font-weight: bold;'>Titulo da Contato:</legend>
+        <p style='font-size: 18px;'>{$formulario->getTitulo()}</p>
+        </fieldset>
 
             <fieldset style='margin-top: 20px;'>
                 <legend style='font-size: 22px; font-weight: bold;'>Motivo do Contato:</legend>
@@ -152,7 +151,7 @@ if($postArray) {
         </div>";
 	
        
-        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus - mensagem numero:'.$agora->format("dmYHis"));
+        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus');
     }
 }   
 

@@ -1,8 +1,11 @@
 <?php
 session_start();
 // include './curl.php';
-// require './web_scraper.php';
-// require './Formulario.php';
+require './web_scraper.php';
+
+include 'Upload.class.php';
+require './Formulario.php';
+
 
  
 
@@ -36,70 +39,36 @@ session_start();
     <script type="text/javascript">
 
 
+        jQuery(document).ready(function() {
+            jQuery('#form-fale-conosco').submit(function() {
+                var dados = jQuery(this).serialize();
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: "form_action.php",
+                    data: dados,
+                    success: function(data) {
+                        $('#mensagem').css('display', 'block')
+                            .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
 
 
+                    },
+                    beforeSend: function() {
+                        /* antes de enviar */
+                        $('.loading').fadeIn('fast');
+                    },
+                    complete: function() {
+                        /* completo */
+                        $('.loading').fadeOut('fast');
+                    }
+                });
 
-
-$(document).ready(function(){
-    $('#btnEnviar').click(function(){
-        $('#form-fale-conosco').ajaxForm({
-            uploadProgress: function(event, position, total, percentComplete) {
-                $('progress').attr('value',percentComplete);
-                $('#porcentagem').html(percentComplete+'%');
-            },    
-
-            success: function(data) {
-                $('progress').attr('value','100');
-                $('#porcentagem').html('100%');                
-                if(data.sucesso == true){
-                    $('#resposta').css('display', 'block').html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
-
-                }
-                else{
-                    $('#resposta').html(data.msg);
-                }                
-            },
-            error : function(){
-                $('#resposta').html('Erro ao enviar requisição!!!');
-            },
-            dataType: 'json',
-            url: 'Formulario.php',
-            resetForm: true
-        }).submit();
-    })
-})
-        // jQuery(document).ready(function() {
-        //     jQuery('#form-fale-conosco').submit(function() {
-        //         var dados = jQuery(this).serialize();
-
-        //         jQuery.ajax({
-        //             type: "POST",
-        //             url: "Formulario.php",
-        //             data: dados,
-        //                 uploadProgress: function(event, position, total, percentComplete) {
-        //                         $('progress').attr('value',percentComplete);
-        //                         $('#porcentagem').html(percentComplete+'%');
-        //                     },        
-        //             success: function(data) {
-        //                 $('#mensagem').css('display', 'block')
-        //                     .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
-
-
-        //             },
-        //             beforeSend: function() {
-        //                 /* antes de enviar */
-        //                 $('.loading').fadeIn('fast');
-        //             },
-        //             complete: function() {
-        //                 /* completo */
-        //                 $('.loading').fadeOut('fast');
-        //             }
-        //         });
-
-        //         return false;
-        //     });
-        // });
+                return false;
+            });
+        });
     </script>
+
+
     <style>
         .loading {
             display: none;
@@ -973,14 +942,20 @@ $(document).ready(function(){
                     </div>
                 </form>
 
-                <div id="resposta" class=""></div>
+                <div id="mensagem" class=""></div>
 
 
 
             <br />
            
        
-        <div id="resposta">
+        <?php
+           if ((isset($_POST["submit"])) && (! empty($_FILES['upload_file']))){
+            $upload = new Upload($_FILES['upload_file'], 1000, 800, "uploads/");
+                echo $upload->salvar();
+        }
+            
+        ?>
             </div>
 
         </div>
