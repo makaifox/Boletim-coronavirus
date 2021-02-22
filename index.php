@@ -47,12 +47,8 @@ require './Formulario.php';
                     type: "POST",
                     url: "form_action.php",
                     data: dados,
-                    success: function(data) {
-                        $('#mensagem').css('display', 'block')
-                            .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
+                    contentType: false, // evitar que o jQuery realize o set do 'content-type' para 'application/x-www-form-urlencoded'.
 
-
-                    },
                     beforeSend: function() {
                         /* antes de enviar */
                         $('.loading').fadeIn('fast');
@@ -60,7 +56,12 @@ require './Formulario.php';
                     complete: function() {
                         /* completo */
                         $('.loading').fadeOut('fast');
+                    },
+                    success: function(data) {
+                        $('#mensagem').css('display', 'block')
+                            .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
                     }
+
                 });
 
                 return false;
@@ -928,7 +929,7 @@ require './Formulario.php';
 
                                 </div>
                                 <div class="col">
-                                    <button type="submit" id="btnEnviar" class="btn-lg btn-color">Enviar</button> <img src="img/loading.gif" class="loading" style="width: auto; height: 2rem;">
+                                    <button type="submit" name="submit" id="btnEnviar" class="btn-lg btn-color">Enviar</button> <img src="img/loading.gif" class="loading" style="width: auto; height: 2rem;">
 
                                 </div>
 

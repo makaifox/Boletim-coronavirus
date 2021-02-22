@@ -6,12 +6,12 @@ require './Alert.php';
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
         
-        'atendimento@mesquita.rj.gov.br',
-        'daniel.souza@mesquita.rj.gov.br',
-        'everton.rocha@mesquita.rj.gov.br',
-        'yury.cunha@mesquita.rj.gov.br',
-        'maira.silva@mesquita.rj.gov.br',
-        'governodemesquita@gmail.com'
+        // 'atendimento@mesquita.rj.gov.br',
+        // 'daniel.souza@mesquita.rj.gov.br',
+        // 'everton.rocha@mesquita.rj.gov.br',
+        // 'yury.cunha@mesquita.rj.gov.br',
+        // 'maira.silva@mesquita.rj.gov.br',
+        // 'governodemesquita@gmail.com'
     
         
 ];
