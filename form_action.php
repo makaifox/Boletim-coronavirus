@@ -5,14 +5,6 @@ session_start();
 require './Formulario.php';
 require './Alert.php';
 
- 
-
-
-
-
-
-
-
 
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
@@ -27,6 +19,8 @@ $address = [
         
 ];
 
+
+
 if($postArray) {
     
     if($postArray['nome'] == "" ) {
@@ -35,38 +29,41 @@ if($postArray) {
     elseif($postArray['email'] == "" || !filter_var($postArray['email'], FILTER_VALIDATE_EMAIL)) {
        header("location:index.php?erroEmail=true#fale_conosco");
     }
-    elseif($postArray['nascimento'] == "") {
-        header("location:index.php?erroNascimento=true");
-    }
     elseif($postArray['tel'] == "") {
         header("location:index.php?erroTel=true");
     }
-    elseif($postArray['sexo'] == "Selecione") {
+    elseif($postArray['nascimento'] == "Selecione") {
+        header("location:index.php?erroNascimento=true");
+    }
+    elseif($postArray['sexo'] == "") {
         header("location:index.php?erroSexo=true");
     }
-    elseif($postArray['endereco'] == "") {
+    elseif($postArray['endereco'] == "Selecione") {
         header("location:index.php?erroEndereco=true");
     }
-    elseif($postArray['secretaria'] == "Selecione") {
-        header("location:index.php?erroSecretaria=true");
+    elseif($postArray['numero'] == "Selecione") {
+        header("location:index.php?erroNumero=true");
     }
-    elseif($postArray['motivo'] == "Selecione") {
-        header("location:index.php?erroMotivo=true");
-    }
-    elseif($postArray['mensagem'] == "" ) {
+    elseif($postArray['bairro'] == "" ) {
         $_SESSION['erroForm']['mensagemInvalida'] = "<p class='erro'> Por favor, digite uma mensagem válida!</p>";;
     }
-    elseif($postArray['cep'] == "") {
+    elseif($postArray['secretaria'] == "") {
         $_SESSION['erroForm']['cepInvalido'] = "<p class='erro'> Por favor, digite um cep válido </p>";
     }
- /*   
-    elseif($postArray['denuncia'] == "") {
-        $_SESSION['erroForm']['denunciaInvalida'] = "<p class='erro'> Por favor, informe uma denuncia válida!</p>";
+    elseif($postArray['motivo'] == "") {
+        header("location:index.php?erroEndereco=true");
     }
-    elseif($postArray['duvidas'] == "") {
-        $_SESSION['erroForm']['duvidasInvalida'] = "<p class='erro'> Por favor, informe uma dúvida válida!</p>";
+    elseif($postArray['titulo'] == "Selecione") {
+        header("location:index.php?erroSecretaria=true");
     }
-*/
+    elseif($postArray['mensagem'] == "Selecione") {
+        header("location:index.php?erroMotivo=true");
+    }
+    elseif($postArray['cep'] == "" ) {
+        $_SESSION['erroForm']['mensagemInvalida'] = "<p class='erro'> Por favor, digite uma mensagem válida!</p>";
+    }
+
+
     else {
         $formulario = new Formulario(
             $postArray['nome'],
@@ -83,8 +80,6 @@ if($postArray) {
             $postArray['titulo'],
             $postArray['mensagem'],
             $postArray['cep']
-            // $postArray['upload_file']
-           /* $postArray['duvidas'] */
 
         );
         $msg = "
@@ -163,7 +158,6 @@ if($postArray) {
         </div>";
 	
        
-        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus');
+        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus' , $novo_nome);
     }
 }   
-

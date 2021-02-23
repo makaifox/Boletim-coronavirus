@@ -35,7 +35,7 @@ require './Formulario.php';
 
 
 
-    <script type="text/javascript">
+<!-- <script type="text/javascript">
 
     $(function()
         {
@@ -67,62 +67,7 @@ require './Formulario.php';
         });
     });
 
-        // $(function()
-        // {
-        //     $('#form-fale-conosco').submit(function(e)
-        //     {
-        //         e.preventDefault();
-
-        //         var formData = new FormData();
-
-        //         formData.append('image', $('#customFile').prop('files')[0]);
-
-        //         $.ajax({
-        //             url: 'upload.php',
-        //             data: formData,
-        //             type: 'post',
-
-        //             success: function(response)
-        //             {
-        //                 console.log('arquivo enviado com sucesso');
-        //             },
-        //             processData: false,
-        //             cache: false,
-        //             contentType: false
-        //         });
-        //     });
-        // });
-
-
-        // jQuery(document).ready(function() {
-        //     jQuery('#form-fale-conosco').submit(function() {
-        //         var dados = jQuery(this).serialize();
-
-        //         jQuery.ajax({
-        //             type: "POST",
-        //             url: "form_action.php",
-        //             data: dados,
-                   
-
-        //             beforeSend: function() {
-        //                 /* antes de enviar */
-        //                 $('.loading').fadeIn('fast');
-        //             },
-        //             complete: function() {
-        //                 /* completo */
-        //                 $('.loading').fadeOut('fast');
-        //             },
-        //             success: function(data) {
-        //                 $('#mensagem').css('display', 'block')
-        //                     .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
-        //             }
-
-        //         });
-
-        //         return false;
-        //     });
-        // });
-    // </script>
+ </script> -->
 
 
     <style>
@@ -788,7 +733,7 @@ require './Formulario.php';
 
             <div class="card-body fale-conosco">
 
-                <form action="" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
+                <form action="form_action.php" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
                     <h6 class="sec-form text-center align-self-center">DADOS DO REMETENTE</h6>
                     <div class="remetente">
                         
@@ -971,7 +916,7 @@ require './Formulario.php';
 
                         <div class="form-group">
                             <label for="mensagem">Deixe sua mensagem:</label><br>
-                            <textarea name="mensagem" class="form-control" cols="20" rows="7" placeholder="Envie sua sugestção" required></textarea><br>
+                            <textarea name="mensagem" class="form-control" cols="20" rows="7" placeholder="Envie sua mensagem" required></textarea><br>
 
                         </div>
 

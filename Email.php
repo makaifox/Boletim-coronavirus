@@ -7,7 +7,6 @@ require_once __DIR__.'/src/Exception.php';
 
 
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Email {
@@ -18,10 +17,10 @@ class Email {
     private $assunto;
     private $userName;
     private $password;
-    //private $novo_nome;
+    private $novo_nome;
 
 
-    public function __construct($address, $setFrom, $mensagem, $titulo/*, $novo_nome*/) {
+    public function __construct($address, $setFrom, $mensagem, $novo_nome) {
         try {
             
             $this->mail = new PHPMailer(true);
@@ -43,7 +42,7 @@ class Email {
             $this->mail->Subject = $titulo;
             $this->mail->Body = $mensagem;
             $this->mail->AltBody = $this->titulo;
-            //$this->$mail->AddAttachment($novo_nome);
+            $this->mail->AddAttachment('/uploads/_1274_1419926_10156330387100722_45975746_n.jpg');
             if($this->mail->send()) {
                 echo "
 		<script>
