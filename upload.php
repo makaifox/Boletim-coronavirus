@@ -17,7 +17,7 @@ class Upload {
     $this->_file = $curFile;
     }
 
-    private $novo_nome;
+    private $fileDir;
     
     //Metódo para:
     //Verificar se existe arquivo;
@@ -27,26 +27,29 @@ class Upload {
     //Move o arquivo para o diretório escolhido, inserido na concatenação realizada.
     //Retorna true em casos de upload com sucesso e false com erro.
     function makeUpload(){
-    if(isset($this->_file)){
-    $randomName = rand(00,9999);
-    $fileName = self::_FOLDER_DIR . "_" . $randomName . "_" . $this->_file["name"];
-    if(is_uploaded_file($this->_file["tmp_name"])){
-    if(move_uploaded_file($this->_file["tmp_name"], $fileName)){
-    echo "Upload realizado com sucesso!";
-    return true;
-    }else{
-    echo "Erro, problemas no envio.";
-    return false;
-    }
-    } 
-    } 
+        if(isset($this->_file)){
+        $randomName = rand(00,9999);
+        $fileName = self::_FOLDER_DIR . "_" . $randomName . "_" . $this->_file["name"];
+        $this->fileDir = $fileName;
+            if(is_uploaded_file($this->_file["tmp_name"])){
+                if(move_uploaded_file($this->_file["tmp_name"], $fileName)){
+                echo "Upload realizado com sucesso!";
+
+                return true;
+                }else{
+                echo "Erro, problemas no envio.";
+                return false;
+                }
+            } 
+        }    
     }
     public function getFile() {
-        return $this->fileName;
+        $filePath = $this->fileDir;
+        echo $filePath;
     }
-    private function setFile($novo_nome) {
-        $this->fileName = $novo_nome;
-    }
-   }
+   
+}
+
+   
 
 ?>

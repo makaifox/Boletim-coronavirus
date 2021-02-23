@@ -5,7 +5,9 @@ require_once __DIR__.'/src/SMTP.php';
 require_once __DIR__.'/src/Exception.php';  
 
 
+$myUpload = new Upload($_FILES["upload_file"]);
 
+$test = $myUpload->GetFile();
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -17,10 +19,18 @@ class Email {
     private $assunto;
     private $userName;
     private $password;
-    private $novo_nome;
+    
+    public function ArquivoPath() {
 
+        $UploadName = new Upload($_FILES["upload_file"]);
+  
+        $verificar = $myUpload->makeUpload();
+        $UploadName->GetFile();
+        
+    }      
+    
 
-    public function __construct($address, $setFrom, $mensagem, $novo_nome) {
+    public function __construct($address, $setFrom, $mensagem, $titulo) {
         try {
             
             $this->mail = new PHPMailer(true);
@@ -42,13 +52,15 @@ class Email {
             $this->mail->Subject = $titulo;
             $this->mail->Body = $mensagem;
             $this->mail->AltBody = $this->titulo;
-            $this->mail->AddAttachment('/uploads/_1274_1419926_10156330387100722_45975746_n.jpg');
+            $this->mail->AddAttachment = $this->enviarArquivo();
             if($this->mail->send()) {
                 echo "
 		<script>
 			alert('email recebido com sucesso');
-			window.location.href='index.php';
 		</script>";
+
+
+        
             } else {
                 echo "email não enviado";
             }

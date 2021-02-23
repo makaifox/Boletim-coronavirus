@@ -35,7 +35,7 @@ require './Formulario.php';
 
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
     $(function()
         {
@@ -67,7 +67,7 @@ require './Formulario.php';
         });
     });
 
- </script> -->
+ </script>
 
 
     <style>
@@ -733,7 +733,7 @@ require './Formulario.php';
 
             <div class="card-body fale-conosco">
 
-                <form action="form_action.php" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
+                <form action="" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
                     <h6 class="sec-form text-center align-self-center">DADOS DO REMETENTE</h6>
                     <div class="remetente">
                         

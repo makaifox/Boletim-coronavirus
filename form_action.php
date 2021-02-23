@@ -21,6 +21,7 @@ $address = [
 
 
 
+
 if($postArray) {
     
     if($postArray['nome'] == "" ) {
@@ -158,6 +159,6 @@ if($postArray) {
         </div>";
 	
        
-        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus' , $novo_nome);
+        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus');
     }
 }   

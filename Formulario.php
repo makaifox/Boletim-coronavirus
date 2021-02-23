@@ -1,6 +1,7 @@
 <?php
-require 'Email.php';
 require 'Upload.php';
+require 'Email.php';
+
 
 
    class Formulario {
@@ -19,7 +20,7 @@ require 'Upload.php';
     private $titulo;
     private $mensagem;
     private $cep;
-    private $novo_nome;
+    
     
 
     private $pdo;
@@ -89,21 +90,23 @@ require 'Upload.php';
         }
 
         $add->execute();
-        $this->enviarArquivo($novo_nome);
-        $this->enviaEmail($address, $setFrom, $mensagem, $titulo, $novo_nome);
+        $this->enviarArquivo();
+        $this->enviaEmail($address, $setFrom, $mensagem, $titulo);
         
 
 
 
     }
 
-    public function enviarArquivo($novo_nome) {
+    public function enviarArquivo() {
 
         $myUpload = new Upload($_FILES["upload_file"]);
  
         $verificar = $myUpload->makeUpload();  
+
+        $myUpload->GetFile();
         
-         $myUpload->GetFile($novo_nome);
+    
         
     }
 
@@ -117,9 +120,9 @@ require 'Upload.php';
         return $dados;
     }
 
-    public function enviaEmail($address, $setFrom, $mensagem, $titulo, $novo_nome) {
+    public function enviaEmail($address, $setFrom, $mensagem, $titulo) {
         foreach($address as $value) {
-            new Email($value, $setFrom, $mensagem, $titulo, $novo_nome);
+            new Email($value, $setFrom, $mensagem, $titulo);
         }
     }
 
