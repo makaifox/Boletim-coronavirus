@@ -1,7 +1,58 @@
 <?php
 require 'Email.php';
 
-class Formulario {
+
+class Upload {
+ 
+    // Constante responsável por guardar a pasta de onde os arquivos estarão.
+    const _FOLDER_DIR = "uploads/";
+    
+    // Variável para guardar o array relacionado ao arquivo.
+    public $_file;
+    
+    // Método construtor que recebe o array com os arquivos via POST
+    // Verifica se já existe diretório, caso não; é criado.
+    function __construct($curFile){
+    if(!file_exists(self::_FOLDER_DIR)){
+    mkdir(self::_FOLDER_DIR);
+    }
+    $this->_file = $curFile;
+    }
+
+    private $novo_nome;
+    
+    //Metódo para:
+    //Verificar se existe arquivo;
+    //Setar nome aleatório para evitar repetição e substiuição de arquivos;
+    //Cria nome de arquivo concatenando DIRETÓRIO + NOME ALEATÓRIO + NOME DO ARQUIVO ENVIADO.
+    //Verifica se o arquivo foi realizado o upload
+    //Move o arquivo para o diretório escolhido, inserido na concatenação realizada.
+    //Retorna true em casos de upload com sucesso e false com erro.
+    function makeUpload(){
+    if(isset($this->_file)){
+    $randomName = rand(00,9999);
+    $fileName = self::_FOLDER_DIR . "_" . $randomName . "_" . $this->_file["name"];
+    $this->novo_nome = $fileName;
+    if(is_uploaded_file($this->_file["tmp_name"])){
+    if(move_uploaded_file($this->_file["tmp_name"], $fileName)){
+    echo "Upload realizado com sucesso!";
+    return true;
+    }else{
+    echo "Erro, problemas no envio.";
+    return false;
+    }
+    } 
+    } 
+    }
+    public function getFile() {
+        return $this->novo_nome;
+    }
+    private function setFile($novo_nome) {
+        $this->novo_nome = $novo_nome;
+    }
+   }
+
+   class Formulario {
 
     private $nome;
     private $email;
@@ -17,12 +68,11 @@ class Formulario {
     private $titulo;
     private $mensagem;
     private $cep;
-    private $arquivo;
     
 
     private $pdo;
 
-    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $num, $bai, $cid, $sec, $mot, $tit, $men, $cep, $arq) {
+    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $num, $bai, $cid, $sec, $mot, $tit, $men, $cep) {
 
         try {
             $this->pdo = new PDO("mysql:dbname=coronaviruspmm;host=coronaviruspmm.mysql.dbaas.com.br", 'coronaviruspmm', 'pmmcorona2020');
@@ -44,58 +94,67 @@ class Formulario {
         $this->setTitulo($tit);
         $this->setMensagem($men);
         $this->setCep($cep);
-        
     }
 
     public function addFormulario($postArray, $address, $setFrom, $mensagem, $titulo) {
         $add = $this->pdo->prepare("INSERT INTO formulario 
         (
-            nome,
-            email,
-            tel,
-            nascimento,
-            sexo,
-            endereco,
-            numero,
-            bairro,
-            cidade,
-            secretaria,
-            motivo,
-            titulo,
-            mensagem,
+            nome, 
+            email, 
+            tel, 
+            nascimento, 
+            sexo, 
+            endereco, 
+            numero, 
+            bairro, 
+            cidade, 
+            secretaria, 
+            motivo, 
+            titulo, 
+            mensagem, 
             cep
-            
-
-        ) VALUES 
-        ( 
-            :nome,
-            :email,
-            :tel,
-            :nascimento,
-            :sexo,
-            :endereco,
-            :numero,
-            :bairro,
-            :cidade,
-            :secretaria,
-            :motivo,
-            :titulo,
-            :mensagem,
-            :cep
-            
-        )");
+            ) 
+        VALUES 
+        (
+            :nome, 
+            :email, 
+            :tel, 
+            :nascimento, 
+            :sexo, 
+            :endereco, 
+            :numero, 
+            :bairro, 
+            :cidade, 
+            :secretaria, 
+            :motivo, 
+            :titulo, 
+            :mensagem, 
+            :cep)
+        ");
 
         foreach($postArray as $key => $value) {
             $add->bindValue(":{$key}",$value);  
         }
 
         $add->execute();
-        $this->enviaEmail($address, $setFrom, $mensagem, $titulo);
         $this->enviarArquivo();
+        $this->enviaEmail($address, $setFrom, $mensagem, $titulo);
+        
 
 
 
     }
+
+    public function enviarArquivo() {
+
+        $myUpload = new Upload($_FILES["upload_file"]);
+ 
+        $verificar = $myUpload->makeUpload();  
+        
+        $myUpload->GetFile($novo_nome);
+        
+    }
+
 
     public function selectFormulario () {
         $dados = [];
@@ -106,17 +165,16 @@ class Formulario {
         return $dados;
     }
 
-    public function enviaEmail($address, $setFrom, $mensagem, $titulo) {
+    public function enviaEmail($address, $setFrom, $mensagem, $titulo/*, $novo_nome*/) {
         foreach($address as $value) {
             new Email($value, $setFrom, $mensagem, $titulo);
         }
     }
 
-
-
     public function getNome() {
         return $this->nome;
     }
+
     private function setNome($nome) {
         $this->nome = $nome;
     }
@@ -196,7 +254,7 @@ class Formulario {
     }
 
     private function setTitulo($titulo) {
-        $this->titulo;
+        $this->titulo = $titulo;
     }
 
     public function getMensagem() {
@@ -213,18 +271,5 @@ class Formulario {
         $this->cep = $cep;
     }
 
-    public function getArquivo() {
-        return $this->upload_file;
-    }
-    private function setArquivo($arquivo) {
-        $this->upload_file = $Arquivo;
-    }
 
-/*    public function getDuvidas() {
-        return $this->duvidas;
-    }
-    private function setDuvidas($duvidas) {
-        $this->duvidas = $duvidas;
-    }
-*/
 }

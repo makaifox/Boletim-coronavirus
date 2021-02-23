@@ -13,15 +13,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 class Email {
 
     private $mail;
-
     private $titulo;
     private $mensagem;
     private $assunto;
     private $userName;
     private $password;
+    //private $novo_nome;
 
 
-    public function __construct($address, $setFrom, $mensagem, $titulo) {
+    public function __construct($address, $setFrom, $mensagem, $titulo/*, $novo_nome*/) {
         try {
             
             $this->mail = new PHPMailer(true);
@@ -39,11 +39,11 @@ class Email {
             $this->mail->Username = 'governodemesquita@gmail.com';
             $this->mail->Password = 'acesso2020@#ccs';
             $this->mail->setFrom($setFrom);
-            $this->mail->addAddress($address);
+            $this->mail->addAddress($address);//lista de emails para enviar
             $this->mail->Subject = $titulo;
             $this->mail->Body = $mensagem;
             $this->mail->AltBody = $this->titulo;
-            $this->$mail->AddAttachment($path_file);
+            //$this->$mail->AddAttachment($novo_nome);
             if($this->mail->send()) {
                 echo "
 		<script>

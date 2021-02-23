@@ -37,61 +37,91 @@ require './Formulario.php';
 
     <script type="text/javascript">
 
-        $(function()
+    $(function()
         {
-            $('#form-fale-conosco').submit(function(e)
-            {
-                e.preventDefault();
 
-                var formData = new FormData();
+        $("#form-fale-conosco").submit(function(e) {
+            e.preventDefault();    
+            var formData = new FormData(this);
 
-                formData.append('image', $('#customFile').prop('files')[0]);
-
-                $.ajax({
-                    url: 'upload.php',
-                    data: formData,
-                    type: 'post',
-
-                    success: function(response)
-                    {
-                        console.log('arquivo enviado com sucesso');
-                    },
-                    processData: false,
-                    cache: false,
-                    contentType: false
-                });
+            $.ajax({
+                url: "form_action.php",
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                            /* antes de enviar */
+                    $('.loading').fadeIn('fast');
+                },
+                complete: function() {
+                            /* completo */
+                    $('.loading').fadeOut('fast');
+                },
+                success: function(data) {
+                    $('#mensagem').css('display', 'block')
+                        .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
+                },
+                cache: false,
+                contentType: false,
+                processData: false
             });
         });
+    });
+
+        // $(function()
+        // {
+        //     $('#form-fale-conosco').submit(function(e)
+        //     {
+        //         e.preventDefault();
+
+        //         var formData = new FormData();
+
+        //         formData.append('image', $('#customFile').prop('files')[0]);
+
+        //         $.ajax({
+        //             url: 'upload.php',
+        //             data: formData,
+        //             type: 'post',
+
+        //             success: function(response)
+        //             {
+        //                 console.log('arquivo enviado com sucesso');
+        //             },
+        //             processData: false,
+        //             cache: false,
+        //             contentType: false
+        //         });
+        //     });
+        // });
 
 
-        jQuery(document).ready(function() {
-            jQuery('#form-fale-conosco').submit(function() {
-                var dados = jQuery(this).serialize();
+        // jQuery(document).ready(function() {
+        //     jQuery('#form-fale-conosco').submit(function() {
+        //         var dados = jQuery(this).serialize();
 
-                jQuery.ajax({
-                    type: "POST",
-                    url: "form_action.php",
-                    data: dados,
+        //         jQuery.ajax({
+        //             type: "POST",
+        //             url: "form_action.php",
+        //             data: dados,
                    
 
-                    beforeSend: function() {
-                        /* antes de enviar */
-                        $('.loading').fadeIn('fast');
-                    },
-                    complete: function() {
-                        /* completo */
-                        $('.loading').fadeOut('fast');
-                    },
-                    success: function(data) {
-                        $('#mensagem').css('display', 'block')
-                            .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
-                    }
+        //             beforeSend: function() {
+        //                 /* antes de enviar */
+        //                 $('.loading').fadeIn('fast');
+        //             },
+        //             complete: function() {
+        //                 /* completo */
+        //                 $('.loading').fadeOut('fast');
+        //             },
+        //             success: function(data) {
+        //                 $('#mensagem').css('display', 'block')
+        //                     .html('<p style="border: 3px solid green; border-radius: 1rem; margin: 2rem; padding: 1.5rem;">Mensagem enviada com sucesso !</p>');
+        //             }
 
-                });
+        //         });
 
-                return false;
-            });
-        });
+        //         return false;
+        //     });
+        // });
     // </script>
 
 
@@ -758,7 +788,7 @@ require './Formulario.php';
 
             <div class="card-body fale-conosco">
 
-                <form action="upload.php" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
+                <form action="" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
                     <h6 class="sec-form text-center align-self-center">DADOS DO REMETENTE</h6>
                     <div class="remetente">
                         

@@ -10,6 +10,10 @@ require './Alert.php';
 
 
 
+
+
+
+
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
         
@@ -78,8 +82,8 @@ if($postArray) {
             $postArray['motivo'],
             $postArray['titulo'],
             $postArray['mensagem'],
-            $postArray['cep'],
-            $postArray['upload_file']
+            $postArray['cep']
+            // $postArray['upload_file']
            /* $postArray['duvidas'] */
 
         );
