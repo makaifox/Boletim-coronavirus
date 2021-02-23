@@ -17,11 +17,12 @@ class Formulario {
     private $titulo;
     private $mensagem;
     private $cep;
+    private $arquivo;
     
 
     private $pdo;
 
-    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $num, $bai, $cid, $sec, $mot, $tit, $men, $cep) {
+    public function __construct($nome, $email, $tel, $nasc, $sexo, $end, $num, $bai, $cid, $sec, $mot, $tit, $men, $cep, $arq) {
 
         try {
             $this->pdo = new PDO("mysql:dbname=coronaviruspmm;host=coronaviruspmm.mysql.dbaas.com.br", 'coronaviruspmm', 'pmmcorona2020');
@@ -43,6 +44,7 @@ class Formulario {
         $this->setTitulo($tit);
         $this->setMensagem($men);
         $this->setCep($cep);
+        
     }
 
     public function addFormulario($postArray, $address, $setFrom, $mensagem, $titulo) {
@@ -62,6 +64,7 @@ class Formulario {
             titulo,
             mensagem,
             cep
+            
 
         ) VALUES 
         ( 
@@ -79,6 +82,7 @@ class Formulario {
             :titulo,
             :mensagem,
             :cep
+            
         )");
 
         foreach($postArray as $key => $value) {
@@ -87,6 +91,9 @@ class Formulario {
 
         $add->execute();
         $this->enviaEmail($address, $setFrom, $mensagem, $titulo);
+        $this->enviarArquivo();
+
+
 
     }
 
@@ -104,6 +111,8 @@ class Formulario {
             new Email($value, $setFrom, $mensagem, $titulo);
         }
     }
+
+
 
     public function getNome() {
         return $this->nome;
@@ -202,6 +211,13 @@ class Formulario {
     }
     private function setCep($cep) {
         $this->cep = $cep;
+    }
+
+    public function getArquivo() {
+        return $this->upload_file;
+    }
+    private function setArquivo($arquivo) {
+        $this->upload_file = $Arquivo;
     }
 
 /*    public function getDuvidas() {

@@ -4,6 +4,10 @@ require_once __DIR__.'/src/PHPMailer.php';
 require_once __DIR__.'/src/SMTP.php';
 require_once __DIR__.'/src/Exception.php';  
 
+
+
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Email {
@@ -39,6 +43,7 @@ class Email {
             $this->mail->Subject = $titulo;
             $this->mail->Body = $mensagem;
             $this->mail->AltBody = $this->titulo;
+            $this->$mail->AddAttachment($path_file);
             if($this->mail->send()) {
                 echo "
 		<script>

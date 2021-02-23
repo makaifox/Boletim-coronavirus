@@ -2,8 +2,6 @@
 session_start();
 // include './curl.php';
 require './web_scraper.php';
-
-include 'Upload.class.php';
 require './Formulario.php';
 
 
@@ -36,7 +34,34 @@ require './Formulario.php';
 
 
 
+
     <script type="text/javascript">
+
+        $(function()
+        {
+            $('#form-fale-conosco').submit(function(e)
+            {
+                e.preventDefault();
+
+                var formData = new FormData();
+
+                formData.append('image', $('#customFile').prop('files')[0]);
+
+                $.ajax({
+                    url: 'upload.php',
+                    data: formData,
+                    type: 'post',
+
+                    success: function(response)
+                    {
+                        console.log('arquivo enviado com sucesso');
+                    },
+                    processData: false,
+                    cache: false,
+                    contentType: false
+                });
+            });
+        });
 
 
         jQuery(document).ready(function() {
@@ -47,7 +72,7 @@ require './Formulario.php';
                     type: "POST",
                     url: "form_action.php",
                     data: dados,
-                    contentType: false, // evitar que o jQuery realize o set do 'content-type' para 'application/x-www-form-urlencoded'.
+                   
 
                     beforeSend: function() {
                         /* antes de enviar */
@@ -67,7 +92,7 @@ require './Formulario.php';
                 return false;
             });
         });
-    </script>
+    // </script>
 
 
     <style>
@@ -733,7 +758,7 @@ require './Formulario.php';
 
             <div class="card-body fale-conosco">
 
-                <form action="" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
+                <form action="upload.php" id="form-fale-conosco" class="form" method="POST" enctype="multipart/form-data">
                     <h6 class="sec-form text-center align-self-center">DADOS DO REMETENTE</h6>
                     <div class="remetente">
                         
@@ -902,13 +927,13 @@ require './Formulario.php';
                         </div>
                         
                             
-                        <script>
+                         <script>
                         // Add the following code if you want the name of the file appear on select
                         $(".custom-file-input").on("change", function() {
                         var fileName = $(this).val().split("\\").pop();
                         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
                         });
-                        </script>
+                        </script> 
                         </div>
 
 
@@ -949,14 +974,6 @@ require './Formulario.php';
 
             <br />
            
-       
-        <?php
-           if ((isset($_POST["submit"])) && (! empty($_FILES['upload_file']))){
-            $upload = new Upload($_FILES['upload_file'], 1000, 800, "uploads/");
-                echo $upload->salvar();
-        }
-            
-        ?>
             </div>
 
         </div>

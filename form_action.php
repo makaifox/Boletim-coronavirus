@@ -1,7 +1,14 @@
 <?php
+
 session_start();
+
 require './Formulario.php';
 require './Alert.php';
+
+ 
+
+
+
 
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
@@ -11,7 +18,7 @@ $address = [
         // 'everton.rocha@mesquita.rj.gov.br',
         // 'yury.cunha@mesquita.rj.gov.br',
         // 'maira.silva@mesquita.rj.gov.br',
-        // 'governodemesquita@gmail.com'
+        'yu.trindade@gmail.com'
     
         
 ];
@@ -71,7 +78,8 @@ if($postArray) {
             $postArray['motivo'],
             $postArray['titulo'],
             $postArray['mensagem'],
-            $postArray['cep']
+            $postArray['cep'],
+            $postArray['upload_file']
            /* $postArray['duvidas'] */
 
         );
