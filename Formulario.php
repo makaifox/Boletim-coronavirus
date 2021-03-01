@@ -106,9 +106,8 @@ require 'Email.php';
 
         $myUpload->GetFile();
         
-    
-        
     }
+    
 
 
     public function selectFormulario () {
@@ -125,6 +124,8 @@ require 'Email.php';
             new Email($value, $setFrom, $mensagem, $titulo);
         }
     }
+
+  
 
     public function getNome() {
         return $this->nome;
@@ -194,7 +195,7 @@ require 'Email.php';
         return $this->secretaria;
     }
     private function setSecretaria($secretaria) {
-        $this->secretaria;
+        $this->secretaria = $secretaria;
     }
 
     public function getMotivo() {

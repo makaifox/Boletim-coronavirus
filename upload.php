@@ -45,7 +45,7 @@ class Upload {
     }
     public function getFile() {
         $filePath = $this->fileDir;
-        echo $filePath;
+        
     }
    
 }

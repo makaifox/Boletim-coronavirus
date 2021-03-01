@@ -336,9 +336,9 @@ require './Formulario.php';
                 <div class="col-lg-4 col-sm-6 card-mob ">
                     <div class="card-box bg-white">
                         <div class="inner inner-size">
-                            <h3 class="orange"> <?php echo $vac1; ?> </h3>
+                            <h3 class="orange"> 4823 </h3>
                             <p class="orange"> PESSOAS VACINADAS </p>
-                            <h3 class="orange"> 1069 </h3>
+                            <h3 class="orange"> 2069 </h3>
                             <p class="orange" style="font-size:11px; padding: 0"> maior quantitativo de vacinas aplicadas no mesmo local* (Clínica da família São José) </p>
                         </div>
                         <div class="icon">
@@ -909,7 +909,7 @@ require './Formulario.php';
                         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
                         });
                         </script> 
-                        </div>
+                        </div> 
 
 
 

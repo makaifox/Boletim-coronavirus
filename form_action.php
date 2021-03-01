@@ -9,12 +9,12 @@ require './Alert.php';
 $postArray = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRIPPED);
 $address = [
         
-        // 'atendimento@mesquita.rj.gov.br',
+        // 'comunicacao@mesquita.rj.gov.br',
         // 'daniel.souza@mesquita.rj.gov.br',
         // 'everton.rocha@mesquita.rj.gov.br',
-        // 'yury.cunha@mesquita.rj.gov.br',
+        'yury.cunha@mesquita.rj.gov.br',
         // 'maira.silva@mesquita.rj.gov.br',
-        'yu.trindade@gmail.com'
+
     
         
 ];
@@ -83,10 +83,12 @@ if($postArray) {
             $postArray['cep']
 
         );
+
+        $agora = new DateTime(); // Pega o momento atual
         $msg = "
         <div style='max-width: 900px; margin: 0 auto;''>
         
-            <h1 style='text-align: center; color: red;''>Fale Conosco - Boletim Coronavirus</h1>
+            <h1 style='text-align: center; color: red;''>{$formulario->getMensagem()} - Site Boletim-Coronavírus - Nº:{$agora->format('dmYHis')}</h1>
             <fieldset>
                 <legend style='font-size: 22px; font-weight: bold;''>Nome Completo:</legend>
                 <p style='font-size: 18px;''>{$formulario->getNome()}</p>
@@ -156,9 +158,18 @@ if($postArray) {
                 <legend style='font-size: 22px; font-weight: bold;'>CEP:</legend>
                 <p style='font-size: 18px;'>{$formulario->getCep()}</p>
             </fieldset>
+            <br/>
+            <br/>
+            <p style='font-size: 16px; font-weight: bold;'>
+            Att,<br/>
+
+            Boletim-Coronavírus (PMM - Prefeitura Municipal de Mesquita)<br/>
+            
+            http://www.mesquita.rj.gov.br/pmm/boletim-coronavirus/
+            </p>
         </div>";
 	
        
-        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim Coronavirus');
+        $formulario->addFormulario($postArray, $address, 'governodemesquita@gmail.com', $msg , 'Boletim-Coronavirus - Numero: '.$agora->format("dmYHis"));
     }
 }   
