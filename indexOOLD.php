@@ -416,7 +416,7 @@ require './web_scraper.php';
                         <div class="inner">
                             <h3> <?= $dadosTotais['descartadosComTeste']; ?> </h3>
                             <p> Descartados com Teste </p>
-                            <h3> 2 </h3>
+                            <h3> <?= $replace['descartadosTesteHoje']; ?> </h3>
                             <p> informados no dia <?= $hoje; ?> </p>
                         </div>
                         <div class="icon">
@@ -431,7 +431,7 @@ require './web_scraper.php';
                         <div class="inner">
                             <h3> <?= $dadosTotais['descartados']; ?> </h3>
                             <p> Descartados </p>
-                            <h3> 2 </h3>
+                            <h3> <?= $replace['descartadosHoje']; ?> </h3>
                             <p> informados no dia <?= $hoje; ?> </p>
                         </div>
                         <div class="icon">

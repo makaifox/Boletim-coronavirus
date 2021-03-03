@@ -45,13 +45,6 @@ body {
     z-index: 5;
 }
 
-.custom-file-label::after {
-    
-    color: #e9ecef;
-    content: "ENVIAR";
-    background-color: #3e276a;
-}
-
 .iconSVG{
     width: 50% !important;
     fill: #a19f9f;

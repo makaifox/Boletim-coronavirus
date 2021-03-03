@@ -416,7 +416,7 @@ require './web_scraper.php';
                         <div class="inner">
                             <h3> <?= $dadosTotais['descartadosComTeste']; ?> </h3>
                             <p> Descartados com Teste </p>
-                            <h3> 2 </h3>
+                            <h3> <?= $replace['descartadosTesteHoje']; ?> </h3>
                             <p> informados no dia <?= $hoje; ?> </p>
                         </div>
                         <div class="icon">
@@ -431,7 +431,7 @@ require './web_scraper.php';
                         <div class="inner">
                             <h3> <?= $dadosTotais['descartados']; ?> </h3>
                             <p> Descartados </p>
-                            <h3> 2 </h3>
+                            <h3> <?= $replace['descartadosHoje']; ?> </h3>
                             <p> informados no dia <?= $hoje; ?> </p>
                         </div>
                         <div class="icon">
@@ -832,7 +832,7 @@ require './web_scraper.php';
                     <br>
                         <div class="form-group">
                             <label for="secretaria">Secretaria, Subsecretaria ou Setor :</label>
-                            <select style="width: 100%;" name="secretaria" class="form-control option motivo" required>
+                            <select style="width: 100%;" name="secretaria" class="form-control option motivo">
 
                                 <option value="Selecione">Selecione</option>
                                 <option value="SEMGOV">SEMGOV - SECRETARIA MUNICIPAL DE GOVERNANÇA</option>
@@ -874,7 +874,7 @@ require './web_scraper.php';
 
                         <div class="form-group">
                             <label for="motivo">Motivo do contato:</label>
-                            <select style="width: 100%;" name="motivo" class="form-control option motivo" required>
+                            <select style="width: 100%;" name="motivo" class="form-control option motivo">
 
                                 <option value="Selecione">Selecione o motivo</option>
                                 <option value="denuncia">Denuncia</option>
