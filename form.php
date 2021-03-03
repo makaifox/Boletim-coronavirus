@@ -88,15 +88,15 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->SMTPSecure = "tls";
             $mail->Port       = 587;
             $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
-            $mail->Username =  "governodemesquita@gmail.com";
-            $mail->Password =   "acesso2020@#ccs";
+            $mail->Username =  "**********";
+            $mail->Password =   "*********";
             $mail->CharSet = 'UTF-8'; 
 
             //Titulo do e-mail que será enviado
             $mail->Subject  =   'Boletim-Coronavirus - Numero: '.$agora->format("dmYHis");
 
             //Preenchimento do campo FROM do e-mail
-            $mail->From = "governodemesquita@gmail.com";
+            $mail->From = "**********";
             $mail->FromName = "Boletim-Coronavirus";
 
             //Dados do formulario

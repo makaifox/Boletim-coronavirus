@@ -6,8 +6,8 @@ class DadosCorona {
 
     public function __construct($obitos, $suspeitosComTeste, $descartadosComTeste, $descartados, $descartadosClinico, $casosConfirmados) {
         try {
-            $this->pdo = new PDO("mysql:dbname=coronaviruspmm;host=coronaviruspmm.mysql.dbaas.com.br", 'coronaviruspmm', 'pmmcorona2020');
-            //$this->pdo = new PDO("mysql:dbname=coronavirus;host=localhost", 'root', '');
+            $this->pdo = new PDO("mysql:dbname=*********;host=*********", '*********', '*********');
+
         } catch(Exception $e) {
             echo "ERRO: ".$e->getMessage();
         }
